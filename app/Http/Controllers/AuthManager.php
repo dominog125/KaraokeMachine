@@ -16,4 +16,6 @@ class AuthManager extends Controller
     {
         return view('registration');
     }
+
+
 }
