@@ -12,7 +12,8 @@ class AuthManager extends Controller
         return view('login');
     }
 
-Route::get('/registration', [\App\Http\Controllers\AuthManager::class , 'registration'])->name('registration');
-
+    public function register(){
+        return view('register');
+    }
 
 }

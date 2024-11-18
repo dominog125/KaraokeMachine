@@ -7,6 +7,5 @@ Route::get('/', function () {
 });
 Route::get('/login', [\App\Http\Controllers\AuthManager::class, 'login'])->name('login');
 
-Route::get('/registration', function () {
-    return view('registration');
-});
+Route::get('/registration', [\App\Http\Controllers\AuthManager::class , 'registration'])->name('registration');
+
