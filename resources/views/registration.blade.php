@@ -1,19 +1,19 @@
 @extends('layout')
-@section('title','registration 🐒')
+@section('title','registration')
 @section('body')
     <div class="container" style="width: 500px">
 
 
-        <form>
+        <form action="{{route('registration.post')}}" method="post">
+            @csrf
             <div class="mb-3">
                 <label class="form-label">User Name</label>
-                <input type="email" class="form-control" name="username">
+                <input type="text" class="form-control" name="name">
 
             </div>
             <div class="mb-3">
                 <label class="form-label">Email address</label>
                 <input type="email" class="form-control" name="email">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Password</label>
