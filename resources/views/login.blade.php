@@ -3,7 +3,8 @@
 @section('body')
     <div class="container" style="width: 500px">
 
-        <form class="ms-auto me-auto mt-3">
+        <form action="{{route('login.post')}}" method="POST" class="ms-auto me-auto mt-3">
+            @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" name="email">

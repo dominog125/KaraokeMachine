@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 
 class AuthManager extends Controller
 {
@@ -13,7 +16,8 @@ class AuthManager extends Controller
         return view('login');
     }
 
-    public function registration(){
+    public function registration()
+    {
         return view('registration');
     }
 
@@ -37,6 +41,28 @@ class AuthManager extends Controller
         }
 
         return redirect()->route('login')->with('success', 'Registration success');
+    }
+
+    public function loginPost(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            $userName = Auth::user()->name;
+            return redirect()->route('home', ['name' => $userName]);
+        }
+        return redirect()->route('login')->with('error', 'Wrong email or password');
+
+    }
+
+    public function home($name)
+    {
+        return view('home', ['name' => $name]);
     }
 
 }
