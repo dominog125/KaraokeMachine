@@ -6,7 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Log;
+use Laravel\Socialite\Facades\Socialite;
+use Exception;
 
 class AuthManager extends Controller
 {
@@ -65,6 +67,67 @@ class AuthManager extends Controller
         return view('home', ['name' => $name]);
     }
 
-}
+    // Facebook
 
+    public function redirectToFacebookLogin()
+    {
+        return Socialite::driver('facebook')->stateless()->redirect();
+    }
+
+    public function handleFacebookLoginCallback()
+    {
+        try {
+            $facebookUser = Socialite::driver('facebook')->stateless()->user();
+
+            $user = User::where('email', $facebookUser->getEmail())->first();
+
+            if ($user) {
+                Auth::login($user);
+                return redirect()->route('home', ['name' => $facebookUser->name]);
+            } else {
+                $newUser = User::create([
+                    'name' => $facebookUser->name,
+                    'email' => $facebookUser->email,
+                    'facebook_id' => $facebookUser->id,
+                    'password' => Hash::make('123456dummy'),
+                ]);
+
+                return redirect()->route('set-password', ['id' => $newUser->id]);
+            }
+        } catch (\Exception $e) {
+            return redirect('/login')->with('error', 'Błąd podczas logowania, spróbuj później.');
+        }
+    }
+
+    public function showSetPasswordForm($id)
+    {
+        $user = User::find($id);
+
+        if (!$user ) {
+            return redirect()->route('login')->with('error', 'Nieprawidłowe konto.');
+        }
+
+        return view('set-password', compact('user'));
+    }
+
+    public function setPassword(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required',
+        ]);
+
+        $user = User::find($id);
+
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'Nieprawidłowe konto.');
+        }
+
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('home', ['name' => $user->name])->with('success', 'Hasło zostało pomyślnie ustawione. Możesz się teraz zalogować.');
+    }
+
+}
 
