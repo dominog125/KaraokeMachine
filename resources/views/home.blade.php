@@ -18,7 +18,9 @@
             </style>
         @endif
     </head>
-    <body class="h-screen overflow-hidden bg-custom-gradient"><x-navbar /></body>
+    <body class="h-screen overflow-hidden bg-custom-gradient">
+        <x-navbar />
+    </body>
     
 
     <!--@@extends('layout') @@section('title','home') @@section('body') @@endsection-->
