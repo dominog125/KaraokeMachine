@@ -18,11 +18,13 @@
             </style>
         @endif
     </head>
+
     
     <body class="h-screen overflow-hidden bg-custom-gradient">
                 <x-navbar/>
                 <x-karaokesearch/>
                 <x-song_card/>
+
                     </header>
 
 
