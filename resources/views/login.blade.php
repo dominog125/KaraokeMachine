@@ -15,8 +15,21 @@
                 <input type="password" class="form-control" name="password">
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
+        <div class="text-center mt-4">
+            <p>Or log in with:</p>
+            <a href="{{ route('login.facebook') }}" class="btn btn-primary w-100">
+                <i class="fab fa-facebook"></i> Login with Facebook
+            </a>
+        </div>
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
 
     </div>
 @endsection
