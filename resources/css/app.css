@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles.css */
+:root {
+    --gradient: linear-gradient(145deg, rgb(119, 46, 195), rgb(58, 18, 153));
+  }
+  
+  /* Globalna klasa dla gradientu */
+  .bg-custom-gradient {
+    background: var(--gradient);
+  }
