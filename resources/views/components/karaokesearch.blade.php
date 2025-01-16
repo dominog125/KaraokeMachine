@@ -1,4 +1,4 @@
-<form action="" class="flex items-center bg-white shadow-md rounded-xl border border-gray-300 p-2 w-full max-w-md mx-auto my-10">
+<form action="" class="flex items-center bg-white shadow-md rounded-xl border border-gray-300 p-2 w-full max-w-md mx-auto my-4">
     <input 
         type="text" 
         placeholder="Favourite karaoke" 
