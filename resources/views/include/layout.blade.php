@@ -17,7 +17,7 @@
     @endif
     </head>
 
-    <body class="left-[20%] bg-custom-gradient opacity-85">
+    <body class="bg-custom-gradient min-h-screen opacity-85">
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>-->
     @yield('body')
     </body>

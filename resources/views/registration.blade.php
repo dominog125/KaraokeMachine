@@ -1,26 +1,63 @@
 @extends('include/layout')
-@section('title','registration')
+@section('title','Registration')
 @section('body')
-    <div class="container" style="width: 500px">
-        <form action="{{route('registration.post')}}" method="post">
-            @csrf
-            <div class="mb-3">
-                <label class="form-label">User Name</label>
-                <input type="text" class="form-control" name="name">
+    <div class="container max-w-md mx-auto mt-10 bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-center text-2xl font-bold mb-6 text-gray-800">Create Sing It Out Account</h2>
 
+        <form action="{{ route('registration.post') }}" method="post" class="space-y-4">
+            @csrf
+
+            <!-- Username -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">User Name</label>
+                <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    class="w-full border border-gray-300 rounded-md p-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Enter your username"
+                    required
+                >
             </div>
-            <div class="mb-3">
-                <label class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email">
+
+            <!-- Email -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    class="w-full border border-gray-300 rounded-md p-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Enter your email"
+                    required
+                >
             </div>
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password" class="form-control" name="password">
+
+            <!-- Password -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    class="w-full border border-gray-300 rounded-md p-2 shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="Enter your password"
+                    required
+                >
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <!-- Submit Button -->
+            <button 
+                type="submit" 
+                class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300"
+            >
+                Register
+            </button>
         </form>
+
+        <!-- Error Message -->
         @if (session('error'))
-            <div class="alert alert-danger">
+            <div class="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                 {{ session('error') }}
             </div>
         @endif

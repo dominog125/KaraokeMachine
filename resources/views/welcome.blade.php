@@ -10,12 +10,12 @@
         <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-2 gap-6 w-[70%]">
             <!-- Lewa sekcja -->
             <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4 text-center">About us</h2>
+                <h2 class="text-xl font-bold mb-4 text-center">About Us</h2>
             </div>
 
             <!-- Prawa sekcja -->
             <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-bold mb-4 text-center">Search & Discover</h2>
+                <h2 class="text-xl font-bold mb-4 text-center">Search & Discover Your Favrouite Tracks</h2>
                 <x-karaokesearch />
                 <x-song_card />
                 <x-song_card />
