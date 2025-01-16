@@ -1,9 +1,7 @@
-@extends('layout')
+@extends('include/layout')
 @section('title','registration')
 @section('body')
     <div class="container" style="width: 500px">
-
-
         <form action="{{route('registration.post')}}" method="post">
             @csrf
             <div class="mb-3">
@@ -27,5 +25,4 @@
             </div>
         @endif
     </div>
-
 @endsection

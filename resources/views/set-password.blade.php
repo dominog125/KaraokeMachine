@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('include/layout')
 @section('title','Change Password')
 @section('body')
     <div class="container mt-5">

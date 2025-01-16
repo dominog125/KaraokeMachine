@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('include/layout')
 @section('title','login 🐒')
 @section('body')
     <div class="container" style="width: 500px">

@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    @extends('include.head')
-    @section('title', 'Welcome')
-</head>
-
-<body class="left-[20%] bg-custom-gradient opacity-85">
-
+@extends('include/layout')
+@section('title','Welcome 🐒')
+@section('body')
     <!-- Nawigacja -->
     <x-navbar />
 
@@ -43,6 +37,4 @@
             </footer>  
         </div>
     </div>
-
-</body>
-</html>
+@endsection
