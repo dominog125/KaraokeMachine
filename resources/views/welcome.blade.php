@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    @extends('include.head')
+    @section('title', 'Welcome')
+</head>
 
-        <title>Laravel</title>
-        
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+<body class="left-[20%] bg-custom-gradient opacity-85">
 
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <style>
-            </style>
-        @endif
-    </head>
+    <!-- Nawigacja -->
+    <x-navbar />
 
-    
-    <body class="h-screen overflow-hidden bg-custom-gradient">
-                <x-navbar/>
-                <x-karaokesearch/>
-                <x-song_card/>
-
-                    </header>
-
-
-                    <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </footer>
-                </div>
+    <!-- Główna zawartość -->
+    <div class="flex-1 flex top-[30px] items-center justify-center py-16 relative">
+        <!-- Główna sekcja -->
+        <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-2 gap-6 w-[70%]">
+            <!-- Lewa sekcja -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-center">About us</h2>
             </div>
+
+            <!-- Prawa sekcja -->
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-bold mb-4 text-center">Search & Discover</h2>
+                <x-karaokesearch />
+                <x-song_card />
+                <x-song_card />
+                <x-song_card />
+                <x-song_card />
+            </div>
+
+            <!-- Stopka -->
+            <footer class="p-6 rounded-lg shadow-md col-span-full md:grid-cols-1 py-8 text-center text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-400 mt-4">
+                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+
+                    <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        Log in
+                    </a>
+                    <a href="{{ route('registration') }}" class="rounded-md px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        Register
+                    </a>
+
+            </footer>  
         </div>
-    </body>
+    </div>
+
+</body>
 </html>
