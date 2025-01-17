@@ -5,7 +5,7 @@
     <x-navbar />
 
     <!-- Główna zawartość -->
-    <div class="flex-1 flex top-[30px] items-center justify-center py-16 relative">
+    <div class="flex-1 flex items-center justify-center py-16 relative">
         <!-- Główna sekcja -->
         <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-2 gap-6 w-[70%]">
             <!-- Lewa sekcja -->

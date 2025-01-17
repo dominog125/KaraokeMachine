@@ -1,12 +1,12 @@
 <div class="max-w-md mx-auto">
     <a href="https://example-karaoke.com/song/123" 
-       class="flex items-center bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden transform hover:scale-105 hover:border-gray-300">
+       class="flex flex-col sm:flex-row items-center bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden transform hover:scale-105 hover:border-gray-300">
         
         <!-- Obrazek -->
         <img 
             src="https://picsum.photos/120/120" 
             alt="Song Cover" 
-            class="w-32 h-32 object-cover rounded-l-lg"
+            class="w-full sm:w-32 h-32 object-cover sm:rounded-l-lg rounded-t-lg sm:rounded-none"
         >
 
         <!-- Treść -->
