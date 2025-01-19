@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,3 +27,17 @@ Route::post('/set-password/{id}', [AuthManager::class, 'setPassword'])->name('se
 
 //Widok po zalogowaniu
 Route::get('/home/{name}', [AuthManager::class, 'home'])->name('home');
+
+//Wylogowanie się z konta
+Route::post('/logout', [AuthManager::class, 'logout'])->name('logout');
+
+//Operacje administratora
+Route::middleware(['auth','isAdmin'])->group(function()   {
+    Route::get('/admin', [AdminController::class, 'dashboard']);
+    Route::resource('/admin/users', UserController::class);
+    Route::post('/admin/user/{user}/ban', [AdminController::class, 'banUser'])->name('admin.user.ban');
+    Route::resource('/admin/songs', SongController::class);
+    Route::resource('/admin/categories', CategoryController::class);
+    Route::resource('/admin/authors', AuthorController::class);
+    Route::post('/admin/changes/{proposal}/{action}', [AdminController::class, 'handleChange']);
+});

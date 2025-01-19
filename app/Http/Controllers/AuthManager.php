@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\UsersLibrary\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
-use Exception;
 
 class AuthManager extends Controller
 {
@@ -127,6 +125,17 @@ class AuthManager extends Controller
         ]);
 
         return redirect()->route('home', ['name' => $user->name])->with('success', 'Hasło zostało pomyślnie ustawione. Możesz się teraz zalogować.');
+    }
+
+    public function logout(Request $request)
+    {
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('success', 'Zostałeś wylogowany.');
     }
 
 }
