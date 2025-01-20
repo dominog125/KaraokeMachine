@@ -22,14 +22,17 @@ Route::get('/login/facebook', [AuthManager::class, 'redirectToFacebookLogin'])->
 Route::get('/login/facebook/callback', [AuthManager::class, 'handleFacebookLoginCallback'])->name('login.facebook.callback');
 
 //Zmiana hasła
-Route::get('/set-password/{id}', [AuthManager::class, 'showSetPasswordForm'])->name('set-password');
-Route::post('/set-password/{id}', [AuthManager::class, 'setPassword'])->name('set-password.post');
+Route::middleware('auth')->group(function () {
+    Route::get('/change-password', [AuthManager::class, 'showChangePasswordForm'])->name('show-change-password');
+    Route::post('/change-password', [AuthManager::class, 'changePassword'])->name('change-password');
+});
 
 //Widok po zalogowaniu
 Route::get('/home/{name}', [AuthManager::class, 'home'])->name('home');
 
 //Wylogowanie się z konta
 Route::post('/logout', [AuthManager::class, 'logout'])->name('logout');
+
 
 //Operacje administratora
 Route::middleware(['auth','isAdmin'])->group(function()   {
