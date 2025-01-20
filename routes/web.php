@@ -6,6 +6,9 @@ use App\Http\Controllers\AuthManager;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('adminpanel', function () {
+    return view('adminpanel');
+});
 
 //Zwykła rejestracja
 Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');

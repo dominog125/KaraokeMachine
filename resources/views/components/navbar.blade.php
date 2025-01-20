@@ -7,24 +7,24 @@
         
         <!-- Menu dla dużych ekranów -->
         <ul class="hidden md:flex space-x-6">
-            <li><a href="/" class="shadow-gray-400 shadow-md rounded-full px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 hover:bg-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">Home</a></li>
-            <li><a href="/about" class="shadow-gray-400 shadow-md rounded-full px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 hover:bg-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">About</a></li>
-            <li><a href="/services" class="shadow-gray-400 shadow-md rounded-full px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 hover:bg-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">Services</a></li>
-            <li><a href="/contact" class="shadow-gray-400 shadow-md rounded-full px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 hover:bg-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">Contact</a></li>
+            <li><x-nav-link href="/">Home</x-nav-link> </li>
+            <li><x-nav-link href="/about">About</x-nav-link></li>
+            <li><x-nav-link href="/services">Services</x-nav-link></li>
+            <li><x-nav-link  href="/contact">Contact</x-nav-link></li>
             <li>
                 @if (Route::has('login'))
                     @auth
-                        <a href="{{ url('/home/{name}') }}" class="shadow-gray-400 shadow-md rounded-md px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 hover:bg-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        <x-nav-link  href="{{ url('/home/{name}') }}">
                             Profil
-                        </a>
+                        </x-nav-link>
                     @else
-                        <a href="{{ route('login') }}" class="rounded-md px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                        <x-nav-link href="{{ route('login') }}">
                             Log in
-                        </a>
+                        </x-nav-link>
                         @if (Route::has('login'))
-                            <a href="{{ route('registration') }}" class="rounded-md px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                            <x-nav-link href="{{ route('registration') }}">
                                 Register
-                            </a>
+                            </x-nav-link>
                         @endif
                     @endauth
                 @endif

@@ -33,7 +33,6 @@
                     <a href="{{ route('registration') }}" class="rounded-md px-3 py-2 text-red-600 ring-1 ring-gray-400 font-black transition-all duration-300 hover:text-white hover:ring-red-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                         Register
                     </a>
-
             </footer>  
         </div>
     </div>
