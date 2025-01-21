@@ -53,4 +53,6 @@
             </tbody>
         </table>
     </div>
+    <a href="{{ route('admin.dashboard') }}">Powrót do panelu zarządzania</a>
+
 @endsection

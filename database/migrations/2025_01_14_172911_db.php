@@ -31,6 +31,7 @@ class db extends Migration
             $table->unsignedBigInteger('Author');
             $table->integer('Likes');
             $table->unsignedBigInteger('Category');
+            $table->string('Ytlink');
             $table->timestamps(0);
 
             $table->foreign('Author')->references('ID')->on('t_author')->onUpdate('cascade');

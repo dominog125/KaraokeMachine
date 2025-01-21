@@ -11,7 +11,7 @@ class Request extends Model
 
     protected $table = 't_request';
 
-    protected $primaryKey = 'IDPr';
+    protected $primaryKey = 'ID';
 
     protected $fillable = [
         'IDSong',
@@ -23,6 +23,6 @@ class Request extends Model
 
     public function song()
     {
-        return $this->belongsTo(Song::class, 'IDSong', 'IDPi');
+        return $this->belongsTo(Song::class, 'IDSong', 'ID');
     }
 }

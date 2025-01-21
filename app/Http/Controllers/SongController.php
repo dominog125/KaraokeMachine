@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Song;
+use App\Models\Lyrics;
 use Illuminate\Support\Facades\DB;
 
 class SongController extends Controller
@@ -41,7 +42,7 @@ class SongController extends Controller
             'Author' => 'required|integer',
             'Likes' => 'integer|nullable',
             'Category' => 'required|integer',
-            // 'Ytlink' => 'string|nullable',
+            'Ytlink' => 'string|nullable',
         ]);
 
         Song::create($request->all());
@@ -54,7 +55,11 @@ class SongController extends Controller
      */
     public function show(Song $song)
     {
-        return view('admin.songs.show', compact('song'));
+
+        $lyrics = DB::table('t_lyrics AS l')->select('l.*')
+            ->Where('l.IDSong','=',$song->ID)->orderBy('l.TimeTe','asc')->get();
+
+        return view('admin.songs.show', compact('song'),['lyrics' => $lyrics]);
     }
 
     /**
@@ -75,7 +80,7 @@ class SongController extends Controller
             'Author' => 'required|integer',
             'Likes' => 'integer|nullable',
             'Category' => 'required|integer',
-            // 'Ytlink' => 'string|nullable',
+            'Ytlink' => 'string|nullable',
         ]);
 
         $song->update($request->all());
@@ -126,7 +131,12 @@ class SongController extends Controller
             ->Join('t_category AS c', 's.Category', '=', 'c.id')
             ->Join('t_author AS a', 's.Author', '=', 'a.id')->Where('s.ID','=',$id)->get();
 
-        return view('song',['results' => $results]);
+        $lyrics = DB::table('t_lyrics AS l')->select('l.*')
+            ->Where('l.IDSong','=',$id)->orderBy('l.TimeTe','asc')->get();
+
+        return view('song',['results' => $results],['lyrics' => $lyrics]);
 
     }
+
+
 }

@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 
 class Lyrics extends \Illuminate\Database\Eloquent\Model
 {
@@ -6,7 +7,7 @@ class Lyrics extends \Illuminate\Database\Eloquent\Model
 
     protected $table = 't_lyrics';
 
-    protected $primaryKey = 'IDTe';
+    protected $primaryKey = 'ID';
 
     protected $fillable = [
         'IDSong',
@@ -18,6 +19,6 @@ class Lyrics extends \Illuminate\Database\Eloquent\Model
 
     public function song()
     {
-        return $this->belongsTo(Song::class, 'IDSong', 'IDPi');
+        return $this->belongsTo(Song::class, 'IDSong', 'ID');
     }
 }

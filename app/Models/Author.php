@@ -11,7 +11,7 @@ class Author extends Model
 
     protected $table = 't_author';
 
-    protected $primaryKey = 'IDAu';
+    protected $primaryKey = 'ID';
 
     protected $fillable = [
         'Author',

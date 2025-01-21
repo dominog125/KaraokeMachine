@@ -1,6 +1,6 @@
+@extends('include.layout')
 
 
-@section('body')
     <div class="container">
         <h1>Dodaj Autora</h1>
 
@@ -23,5 +23,5 @@
 
             <button type="submit">Zapisz</button>
         </form>
+        <a href="{{ route('authors.index') }}">Powrót do listy autorów</a>
     </div>
-@endsection
