@@ -15,6 +15,7 @@
         <!-- Treść -->
         <div class="p-4 flex-1">
             <h2 class="text-lg font-bold text-gray-800 mb-1">
+            
                 Title:{{ $title }}
             </h2>
 

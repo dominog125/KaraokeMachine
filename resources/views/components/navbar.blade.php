@@ -9,7 +9,7 @@
         <ul class="hidden md:flex space-x-6">
 
             <li><x-nav-link href="{{route('welcome')}}">Home</x-nav-link> </li>
-            <li><x-nav-link href="{{route('searchbar')}">Search</x-nav-link></li>
+            <li><x-nav-link href="{{route('searchbar')}}">Search</x-nav-link></li>
             <li><x-nav-link href="/services">Services</x-nav-link></li>
             <li><x-nav-link  href="/contact">Contact</x-nav-link></li>
 
@@ -18,6 +18,12 @@
                     @auth
                         <x-nav-link  href="{{ url('/home/{name}') }}">
                             Profil
+                        </x-nav-link>
+                        <x-nav-link>
+                            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                                <button type="submit">Wyloguj</button>
+                                @csrf  
+                            </form>
                         </x-nav-link>
                     @else
                         <x-nav-link href="{{ route('login') }}">
