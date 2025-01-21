@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\UsersLibrary\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
-use Exception;
 
 class AuthManager extends Controller
 {
@@ -92,41 +90,42 @@ class AuthManager extends Controller
                     'password' => Hash::make('123456dummy'),
                 ]);
 
-                return redirect()->route('set-password', ['id' => $newUser->id]);
+                return redirect()->route('login');
             }
         } catch (\Exception $e) {
             return redirect('/login')->with('error', 'Błąd podczas logowania, spróbuj później.');
         }
     }
 
-    public function showSetPasswordForm($id)
+    public function showChangePasswordForm()
     {
-        $user = User::find($id);
-
-        if (!$user ) {
-            return redirect()->route('login')->with('error', 'Nieprawidłowe konto.');
-        }
-
-        return view('set-password', compact('user'));
+        return view('change-password');
     }
 
-    public function setPassword(Request $request, $id)
+    public function changePassword(Request $request)
     {
         $request->validate([
-            'password' => 'required',
+            'password' => 'required|confirmed',
         ]);
 
-        $user = User::find($id);
+        $user = Auth::user();
 
-        if (!$user) {
-            return redirect()->route('login')->with('error', 'Nieprawidłowe konto.');
-        }
+        $user->password = Hash::make($request->password);
+        $user->save();
 
-        $user->update([
-            'password' => Hash::make($request->password),
-        ]);
+        return redirect()->route('home', ['name' => $user->name])
+            ->with('success', 'Hasło zostało pomyślnie zmienione.');
+    }
 
-        return redirect()->route('home', ['name' => $user->name])->with('success', 'Hasło zostało pomyślnie ustawione. Możesz się teraz zalogować.');
+    public function logout(Request $request)
+    {
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('success', 'Zostałeś wylogowany.');
     }
 
 }
