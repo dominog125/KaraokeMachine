@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('include.layout')
 
-@section('content')
+
     <div class="container">
         <h1>Lista Piosenek</h1>
 
@@ -44,4 +44,4 @@
             </tbody>
         </table>
     </div>
-@endsection
+

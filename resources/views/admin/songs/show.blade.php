@@ -1,6 +1,5 @@
-@extends('layouts.app')
+@extends('include.layout')
 
-@section('content')
     <div class="container">
         <h1>Szczegóły Piosenki</h1>
 
@@ -12,4 +11,3 @@
 
         <a href="{{ route('songs.index') }}">Powrót do listy piosenek</a>
     </div>
-@endsection

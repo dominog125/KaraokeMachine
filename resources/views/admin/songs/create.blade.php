@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('include.layout')
 
-@section('content')
+
     <div class="container">
         <h1>Dodaj Nową Piosenkę</h1>
 
@@ -39,4 +39,4 @@
             <button type="submit">Zapisz</button>
         </form>
     </div>
-@endsection
+

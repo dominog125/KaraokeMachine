@@ -4,10 +4,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SongController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');})->name('welcome');
+Route::get('/', [SongController::class, 'searchTop5'])->name('welcome');
+
+//Wyszukiwarka piosenek
+
+Route::get('/searchbar', [SongController::class, 'search'])->name('searchbar');
+Route::get('/search', [SongController::class, 'search'])->name('song.search');
+
+//piosenka
+Route::get('/song/{id}', [SongController::class, 'showSong']);
+Route::get('/song/{id}', [SongController::class, 'showSong'])->name('song.show');
 
 //Zwykła rejestracja
 Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
@@ -44,3 +53,4 @@ Route::middleware(['auth','isAdmin'])->group(function()   {
     Route::resource('/admin/authors', AuthorController::class);
     Route::post('/admin/changes/{proposal}/{action}', [AdminController::class, 'handleChange']);
 });
+
