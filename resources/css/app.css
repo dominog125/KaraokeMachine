@@ -4,10 +4,16 @@
 
 /* styles.css */
 :root {
-    --gradient: linear-gradient(145deg, rgb(119, 46, 195), rgb(58, 18, 153));
-  }
+
   
+    --gradient: linear-gradient(319deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
+    --darkgradient: linear-gradient(319deg, #33207f 0%, #55007f 37%, #662244 100%);;
+}
   /* Globalna klasa dla gradientu */
   .bg-custom-gradient {
-    background: var(--gradient);
+  background-image : var(--gradient);
+  }
+  /* Globalna klasa dla gradientu (Motyw czarny)*/
+  .bg-custom-darkgradient {
+  background-image : var(--darkgradient);
   }

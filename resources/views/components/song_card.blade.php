@@ -1,5 +1,6 @@
 
 <div class="max-w-md mx-auto">
+
     <a href="{{ route('song.show',[ $id ]) }}"
        class="flex items-center bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden transform hover:scale-105 hover:border-gray-300">
 
@@ -8,6 +9,7 @@
             src="https://picsum.photos/120/120"
             alt="Song Cover"
             class="w-32 h-32 object-cover rounded-l-lg"
+
         >
 
         <!-- Treść -->
