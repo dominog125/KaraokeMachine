@@ -1,7 +1,7 @@
 @extends('include/layout')
 @section('title','Login 🐒')
 @section('body')
-    <div class="container max-w-md mx-auto mt-10 bg-white p-8 rounded-lg shadow-lg">
+    <div class="container max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
         <h2 class="text-center text-2xl font-bold mb-6 text-gray-800">Welcome Back</h2>
 
         <!-- Login Form -->
