@@ -8,12 +8,20 @@ use Illuminate\View\Component;
 
 class song_card extends Component
 {
+
+    public mixed $id =0;
+    public mixed $title ='';
+    public mixed $category='';
+    public mixed $author='';
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct( $id, $title, $category,$author)
     {
-        //
+        $this->id = $id;
+        $this->title = $title;
+        $this->category = $category;
+        $this->author = $author;
     }
 
     /**

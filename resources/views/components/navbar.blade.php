@@ -4,13 +4,15 @@
         <a href="/" class="text-2xl font-black text-black hover:text-gray-300">
             Sing It Out!
         </a>
-        
+
         <!-- Menu dla dużych ekranów -->
         <ul class="hidden md:flex space-x-6">
-            <li><x-nav-link href="/">Home</x-nav-link> </li>
-            <li><x-nav-link href="/about">About</x-nav-link></li>
+
+            <li><x-nav-link href="{{route('welcome')}}">Home</x-nav-link> </li>
+            <li><x-nav-link href="{{route('searchbar')}">Search</x-nav-link></li>
             <li><x-nav-link href="/services">Services</x-nav-link></li>
             <li><x-nav-link  href="/contact">Contact</x-nav-link></li>
+
             <li>
                 @if (Route::has('login'))
                     @auth
@@ -37,16 +39,16 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
         </button>
-    
 
-    <!-- Menu mobilne -->
-    <div id="mobile-menu" class="hidden md:hidden bg-gray-700 text-white">
-        <ul class="space-y-2 p-4">
-            <li><a href="/" class="block hover:text-gray-300">Home</a></li>
-            <li><a href="/about" class="block hover:text-gray-300">About</a></li>
-            <li><a href="/services" class="block hover:text-gray-300">Services</a></li>
-            <li><a href="/contact" class="block hover:text-gray-300">Contact</a></li>
-        </ul>
-    </div>
+
+        <!-- Menu mobilne -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-700 text-white">
+            <ul class="space-y-2 p-4">
+                <li><a href="/" class="block hover:text-gray-300">Home</a></li>
+                <li><a href="/karaokesearch.blade.php" class="block hover:text-gray-300">About</a></li>
+                <li><a href="/services" class="block hover:text-gray-300">Services</a></li>
+                <li><a href="/contact" class="block hover:text-gray-300">Contact</a></li>
+            </ul>
+        </div>
     </div>
 </nav>

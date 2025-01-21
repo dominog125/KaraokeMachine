@@ -2,6 +2,12 @@
 @section('title', 'Home 🐒')
 @section('body')
     <x-navbar />
+<h1>WItaj NA STRONE HOME</h1>
+    <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+        @csrf
+        <button type="submit">Wyloguj</button>
+    </form>
+@endsection
     <div class="flex-1 flex items-center justify-center py-16 relative">
         <div class="bg-white p-8 shadow-2xl rounded-lg w-[85%]">
             <!-- User Profile Header -->
@@ -14,6 +20,7 @@
                     <p class="text-gray-600">Last Login: {{ $user->last_login ?? 'Never' }}</p>
                 </div>
             </div>
+
 
             <!-- Quick Navigation -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
