@@ -10,33 +10,37 @@
 
             <li><x-nav-link href="{{route('welcome')}}">Home</x-nav-link> </li>
             <li><x-nav-link href="{{route('searchbar')}}">Search</x-nav-link></li>
-            <li><x-nav-link href="/services">Services</x-nav-link></li>
-            <li><x-nav-link  href="/contact">Contact</x-nav-link></li>
-
-            <li>
                 @if (Route::has('login'))
                     @auth
-                        <x-nav-link  href="{{ url('/home/{name}') }}">
-                            Profil
-                        </x-nav-link>
-                        <x-nav-link>
-                            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                                <button type="submit">Wyloguj</button>
-                                @csrf  
-                            </form>
-                        </x-nav-link>
+                        <li>
+                            <x-nav-link href="{{ url('/home/{name}') }}">
+                                Profil
+                            </x-nav-link>
+
+                        </li>
+
+                        <li>
+                            <x-nav-link>
+                                <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                                    <button type="submit">Log Out</button>
+                                    @csrf  
+                                </form>
+                            </x-nav-link>
+                        </li>
                     @else
-                        <x-nav-link href="{{ route('login') }}">
-                            Log in
-                        </x-nav-link>
-                        @if (Route::has('login'))
+                        <li>
+                            <x-nav-link href="{{ route('login') }}">
+                                Log In
+                            </x-nav-link>
+                        </li>
+
+                        <li>
                             <x-nav-link href="{{ route('registration') }}">
                                 Register
                             </x-nav-link>
-                        @endif
+                        </li>
                     @endauth
                 @endif
-            </li>
         </ul>
 
         <!-- Przycisk do otwierania menu mobilnego -->

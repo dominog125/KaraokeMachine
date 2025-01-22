@@ -1,5 +1,5 @@
 @extends('include/layout')
-@section('title','Welcome 🐒')
+@section('title','Admin Panel')
 @section('body')
     <!-- Nawigacja -->
     <x-navbar />

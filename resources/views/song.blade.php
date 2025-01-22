@@ -1,5 +1,5 @@
 @extends('include/layout')
-@section('title','Home 🐒')
+@section('title','Home 🎤')
 @section('body')
     <x-navbar />
 

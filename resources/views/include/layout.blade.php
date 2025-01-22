@@ -18,7 +18,7 @@
     @endif
     </head>
 
-    <body class="bg-custom-gradient dark:bg-custom-darkgradient min-h-screen opacity-85">
+    <body class="bg-custom-gradient dark:bg-[linear-gradient(319deg,_#1e293b_0%,_#334155_37%,_#475569_100%)] min-h-screen opacity-85">
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>-->
     @yield('body')
     </body>

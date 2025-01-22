@@ -1,5 +1,5 @@
 @extends('include/layout')
-@section('title','Login 🐒')
+@section('title','Login')
 @section('body')
     <div class="flex items-center justify-center min-h-screen ">
         <div class="container max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
