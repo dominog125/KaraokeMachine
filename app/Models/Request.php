@@ -11,18 +11,27 @@ class Request extends Model
 
     protected $table = 't_request';
 
-    protected $primaryKey = 'IDPr';
+    protected $primaryKey = 'ID';
 
     protected $fillable = [
         'IDSong',
         'RowPr',
         'TimePr',
+        'ChangeType',
+        'UserID',
+        'RowPrOld',
+        'TimePrOld',
     ];
 
     public $timestamps = false;
 
     public function song()
     {
-        return $this->belongsTo(Song::class, 'IDSong', 'IDPi');
+        return $this->belongsTo(Song::class, 'IDSong', 'ID');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'UserID', 'id');
     }
 }

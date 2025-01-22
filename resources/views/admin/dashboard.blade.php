@@ -1,6 +1,7 @@
 @extends('include.layout')
 {{-- Uwaga: zwykle zapisujemy „kropką” (@extends('include.layout')),
      ale slash też może zadziałać --}}
+
 @section('title', 'Admin Panel')
 @section('body')
     <div class="min-h-screen bg-gray-100">
@@ -44,4 +45,4 @@
             Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) | Admin Panel
         </footer>
     </div>
-@endsection
+

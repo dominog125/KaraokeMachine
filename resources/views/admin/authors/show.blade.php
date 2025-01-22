@@ -1,6 +1,6 @@
+@extends('include.layout')
 
 
-@section('body')
     <div class="container">
         <h1>Szczegóły Autora</h1>
 
@@ -9,4 +9,4 @@
 
         <a href="{{ route('authors.index') }}">Powrót do listy autorów</a>
     </div>
-@endsection
+

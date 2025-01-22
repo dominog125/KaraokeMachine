@@ -2,6 +2,29 @@
 @section('title', 'Karaoke Search 🎤')
 @section('body')
 
+    <x-navbar/>
+
+
+
+    <div class="flex-1 flex top-[30px] items-center justify-center py-16 relative">
+        <!-- Główna sekcja -->
+        <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-1 gap-6 w-[70%] ">
+
+            <div class="max-w-md mx-auto">
+                <form action="{{ route('song.search') }}" method="GET">
+                    <input type="text" name="search" placeholder="Search Songs">
+                    <select name="filter">
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="category">Category</option>
+                        <option value="lyrics">Lyrics</option>
+                    </select>
+                    <button type="submit">Search</button>
+                </form>
+
+            </div>
+
+
 <x-navbar />
 
 <div class="flex-1 flex top-[30px] items-center justify-center py-16 relative">
@@ -38,25 +61,34 @@
             </form>
         </div>
 
-        <!-- Results Section -->
-        <div>
-            @if (count($results) > 0)
-                <ul class="space-y-4">
+
+            @if ($results->count() > 0)
+                <ul>
                     @foreach ($results as $result)
                         <li>
-                            <x-song_card 
-                                :id="$result->ID" 
-                                :title="$result->Title" 
-                                :category="$result->category_name" 
-                                :author="$result->author_name" 
+                            <x-song_card
+                                    :id="$result->ID"
+                                    :title="$result->Title"
+                                    :category="$result->category"
+                                    :author="$result->author"
+
                             />
                         </li>
                     @endforeach
                 </ul>
+
+
+                <!-- Linki paginacji -->
+                <div class="pagination">
+                    {{ $results->links() }}
+                </div>
+
             @else
                 <p class="text-center text-gray-600 dark:text-gray-300">No results found. Try searching for a different song.</p>
             @endif
+
         </div>
+
 
         <!-- Results Pagination -->
         <div class="max-w-md mx-auto mt-4">

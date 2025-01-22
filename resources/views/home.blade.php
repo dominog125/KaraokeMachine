@@ -2,6 +2,7 @@
 @section('title', 'Home 🎤')
 @section('body')
     <x-navbar />
+
 @endsection
     <div class="flex-1 flex items-center justify-center py-16 relative">
         <div class="bg-white p-8 shadow-2xl rounded-lg w-[85%]">
@@ -23,6 +24,7 @@
                         @else
                         @endauth
                     @endif
+
                 </div>
             </div>
 
@@ -32,23 +34,31 @@
                 <div class="block p-6 bg-gray-100 rounded-lg shadow-md text-center">
                     <h2 class="text-lg font-semibold">Sing it Out Your Favourite Tracks!</h2>
                     <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <x-song_card :id="1"/>
-                    <x-song_card :id="1"/>
-                    <x-song_card :id="1"/>
+
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+
+
                 </div>
                 <div class="block p-6 bg-gray-100 rounded-lg shadow-md text-center">
                     <h2 class="text-lg font-semibold">Sing it Out Your Recent Tracks!</h2>
                     <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <x-song_card :id="1"/>
-                    <x-song_card :id="1"/>
-                    <x-song_card :id="1"/>
+
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+
                 </div>
                 <div class="block p-6 bg-gray-100 rounded-lg shadow-md text-center">
                     <h2 class="text-lg font-semibold">Sing it Out Our Most Popular Tracks!</h2>
                     <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-                    <x-song_card :id="1"/>
-                    <x-song_card :id="1"/>
-                    <x-song_card :id="1"/>
+
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+                    <x-song_card :id="1" :title="1" :category="1" :author="1" />
+
+
                 </div>
             </div>
 

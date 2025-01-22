@@ -10,7 +10,7 @@ class Song extends Model
 
     protected $table = 't_song';
 
-    protected $primaryKey = 'IDPi';
+    protected $primaryKey = 'ID';
 
     protected $fillable = [
         'Title',
@@ -24,11 +24,11 @@ class Song extends Model
 
     public function author()
     {
-        return $this->belongsTo(Author::class, 'Author', 'IDAu');
+        return $this->belongsTo(Author::class, 'ID', 'ID');
     }
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'Category', 'IDCa');
+        return $this->belongsTo(Category::class, 'ID', 'ID');
     }
 }

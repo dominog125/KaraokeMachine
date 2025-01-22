@@ -23,35 +23,55 @@ class AuthManager extends Controller
 
     public function registrationPost(Request $request)
     {
+        try {
+            $request->validate(
+                [
+                    'name' => 'required',
+                    'email' => 'required|email|unique:users',
+                    'password' => [
+                        'required',
+                        'string',
+                        'min:6', // Minimalna długość 6 znaków
+                        'regex:/[A-Z]/', // Musi zawierać dużą literę
+                        'regex:/[a-z]/', // Musi zawierać małą literę
+                        'regex:/[0-9]/', // Musi zawierać cyfrę
+                        'regex:/[@$!%*?&]/' // Musi zawierać znak specjalny
+                    ],
+                ]
+            );
 
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
+            $data['name'] = $request->name;
+            $data['email'] = $request->email;
+            $data['password'] = Hash::make($request->password);
+            $user = User::create($data);
 
-
-        ]);
-
-        $data['name'] = $request->name;
-        $data['email'] = $request->email;
-        $data['password'] = Hash::make($request->password);
-        $user = User::create($data);
-        if (!$user) {
+            if (!$user) {
+                return redirect()->route('registration')->with('error', 'Registration failed');
+            } else {
+                return redirect()->route('login')->with('success', 'Registration success');
+            }
+        } catch (\Exception $e) {
             return redirect()->route('registration')->with('error', 'Registration failed');
         }
-
-        return redirect()->route('login')->with('success', 'Registration success');
     }
+
 
     public function loginPost(Request $request)
     {
         $request->validate([
             'email' => 'required',
             'password' => 'required',
-
         ]);
 
         $credentials = $request->only('email', 'password');
+
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && $user->is_banned) {
+            return redirect()->route('login')->with('error', 'Your account is banned.');
+        }
+
         if (Auth::attempt($credentials)) {
             $userName = Auth::user()->name;
             return redirect()->route('home', ['name' => $userName]);
@@ -60,9 +80,10 @@ class AuthManager extends Controller
 
     }
 
-    public function home($name)
+    public function home()
     {
-        return view('home', ['name' => $name]);
+        $user=Auth::user();
+        return view('home', ['user' => $user]);
     }
 
     // Facebook

@@ -1,6 +1,6 @@
-@extends('layouts.app')
 
-@section('content')
+@extends('include.layout')
+
     <div class="container">
         <h1>Lista Kategorii</h1>
 
@@ -37,5 +37,7 @@
             @endforeach
             </tbody>
         </table>
+        <a href="{{ route('admin.dashboard') }}">Powrót do panelu zarządzania</a>
+
     </div>
-@endsection
+

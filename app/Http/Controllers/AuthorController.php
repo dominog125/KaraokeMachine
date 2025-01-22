@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Songs;
+use App\Models\Author;
 
 class AuthorController extends Controller
 {
     public function index()
     {
         $authors = Author::all();
-        return view('admin.authors.index', compact('authors'));
+        return view('admin.authors.index', ['authors' => $authors]);
     }
 
     public function create()

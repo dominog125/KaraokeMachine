@@ -27,7 +27,7 @@
             @foreach($songs as $song)
                 <tr>
                     <td>{{ $song->ID }}</td>
-                    <td><a href="{{ route('songs.show', $song->ID) }}">{{ $song->Title }}</a></td>
+                    <td><a href="{{ route('admin.songs.show', $song->ID) }}">{{ $song->Title }}</a></td>
                     <td>{{ $song->Author }}</td>
                     <td>{{ $song->Category }}</td>
                     <td>{{ $song->Likes }}</td>
@@ -43,5 +43,8 @@
             @endforeach
             </tbody>
         </table>
+
     </div>
+<a href="{{ route('admin.dashboard') }}">Powrót do panelu zarządzania</a>
+
 
