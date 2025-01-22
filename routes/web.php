@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\LyricsController;
+use App\Http\Controllers\RequestController;
 
 
 
@@ -24,7 +25,7 @@ Route::get('/search', [SongController::class, 'search'])->name('song.search');
 Route::get('/song/{id}', [SongController::class, 'showSong']);
 Route::get('/song/{id}', [SongController::class, 'showSong'])->name('song.show');
 
-
+//lyrics changerequest
 
 //Zwykła rejestracja
 Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
@@ -40,6 +41,8 @@ Route::get('/login/facebook/callback', [AuthManager::class, 'handleFacebookLogin
 
 //Zmiana hasła
 Route::middleware('auth')->group(function () {
+    Route::get('/requests/create/{song_id}', [RequestController::class, 'create'])->name('requests.create');
+    Route::post('/requests', [RequestController::class, 'store'])->name('requests.store');
     Route::get('/change-password', [AuthManager::class, 'showChangePasswordForm'])->name('show-change-password');
     Route::post('/change-password', [AuthManager::class, 'changePassword'])->name('change-password');
 });

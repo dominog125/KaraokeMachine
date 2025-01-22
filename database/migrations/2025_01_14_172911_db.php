@@ -43,6 +43,10 @@ class db extends Migration
             $table->unsignedBigInteger('IDSong');
             $table->text('RowPr');
             $table->time('TimePr');
+            $table->text('RowPrOld')->nullable();
+            $table->time('TimePrOld')->nullable();
+            $table->enum('ChangeType', ['change_text', 'new_text'])->default('change_text');
+            $table->foreign('UserID')->references('id')->on('users')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps(0);
 
             $table->foreign('IDSong')->references('ID')->on('t_song')->onDelete('cascade')->onUpdate('cascade');

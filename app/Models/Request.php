@@ -17,6 +17,10 @@ class Request extends Model
         'IDSong',
         'RowPr',
         'TimePr',
+        'ChangeType',
+        'UserID',
+        'RowPrOld',
+        'TimePrOld',
     ];
 
     public $timestamps = false;
@@ -24,5 +28,10 @@ class Request extends Model
     public function song()
     {
         return $this->belongsTo(Song::class, 'IDSong', 'ID');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'UserID', 'id');
     }
 }

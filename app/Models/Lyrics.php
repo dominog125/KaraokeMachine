@@ -19,6 +19,6 @@ class Lyrics extends \Illuminate\Database\Eloquent\Model
 
     public function song()
     {
-        return $this->belongsTo(Song::class, 'IDSong', 'ID');
+        return $this->hasMany(Lyrics::class, 'ID', 'ID');
     }
 }

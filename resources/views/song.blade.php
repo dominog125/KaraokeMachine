@@ -5,27 +5,28 @@
 
     <div class="flex-1 flex top-[30px] items-center justify-center py-16 relative">
         <!-- Główna sekcja -->
-        <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-1 gap-6 w-[70%] ">
+        <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-1 gap-6 w-[70%] items-center ">
 
 
-            @auth
-                <div class="flex justify-end mb-4">
-                    <a href="" class="rounded-md px-4 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-all duration-300">
-                        Change Request
-                    </a>
-                </div>
-            @endauth
-            @guest
-                <div class="mt-4 text-left">
-                    <p class="text-gray-600">Zaloguj się, aby uzyskać dostęp do formularza.</p>
-                </div>
-            @endguest
+
 
 
             @if (count($results) > 0)
+
                 <ul>
                     @foreach ($results as $result)
-
+                        @auth
+                            <div class="flex justify-end mb-4">
+                                <a href="{{ route('requests.create', [ $result->ID]) }}" class="rounded-md px-4 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-all duration-300">
+                                    Change Request
+                                </a>
+                            </div>
+                        @endauth
+                        @guest
+                            <div class="flex justify-end mb-4">
+                                <p class="text-gray-600">Zaloguj się, aby uzyskać dostęp do formularza.</p>
+                            </div>
+                        @endguest
 
                         <x-song_card :id="$result->ID" :title="$result->Title" :category="$result->category_name" :author="$result->author_name" />
                     @endforeach
@@ -34,7 +35,7 @@
             @else
                 <p>No results found.</p>
             @endif
-                <div id="player"></div>
+                <div id="player" class="flex justify-center mb-4"></div>
                 <div id="lyrics" style="font-size: 24px; font-weight: bold; margin: 20px; text-align: center; color: black;">Ładowanie tekstu...</div>
 
             <script>

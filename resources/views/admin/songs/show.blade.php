@@ -9,7 +9,7 @@
         <p><strong>ID:</strong> {{ $song->ID }}</p>
         <p><strong>Tytuł:</strong> {{ $song->Title }}</p>
         <p><strong>Autor (ID):</strong> {{ $song->Author }}</p>
-        <p><strong>Kategoria (ID):</strong> {{ $song->Category }}</p>
+        <p><strong>Kategoria (ID):</strong> {{ $song->Category}}</p>
         <p><strong>Polubienia:</strong> {{ $song->Likes }}</p>
         <h3>Dodaj nowy wiersz tekstu</h3>
         <form method="POST" action="{{ route('lyrics.storeFromShow') }}">

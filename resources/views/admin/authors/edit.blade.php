@@ -1,4 +1,3 @@
-
 @extends('include.layout')
 
     <div class="container">

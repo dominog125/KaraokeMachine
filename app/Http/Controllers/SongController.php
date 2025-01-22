@@ -99,16 +99,37 @@ class SongController extends Controller
 
     public function search(Request $request)
     {
-        $search = $request->input('search');
+        $query = $request->input('search');
+        $filter = $request->input('filter');
 
-        $results = DB::table('t_song AS s')->select('s.*', 'c.category AS category_name', 'a.author AS author_name')
-            ->Join('t_category AS c', 's.Category', '=', 'c.id')
-            ->Join('t_author AS a', 's.Author', '=', 'a.id')
-            ->Where('Title','like',"%$search%")->paginate(5);
+        // Podstawowe zapytanie
+        $results = DB::table('t_song AS s')
+            ->select('s.*', 'c.Category AS category', 'a.Author AS author')->distinct()
+            ->join('t_category AS c', 's.Category', '=', 'c.ID')
+            ->join('t_author AS a', 's.Author', '=', 'a.ID');
 
-        return view('searchbar',['results' => $results]);
+        // Warunki wyszukiwania
+        if ($filter == 'title') {
+            $results->where('s.Title', 'LIKE', '%' . $query . '%');
+        } elseif ($filter == 'author') {
+            $results->where('a.Author', 'LIKE', '%' . $query . '%');
+        } elseif ($filter == 'category') {
+            $results->where('c.Category', 'LIKE', '%' . $query . '%');
+        } elseif ($filter == 'lyrics') {
+            $results->join('t_lyrics AS l', 's.ID', '=', 'l.IDSong')
+                ->where('l.RowTe', 'LIKE', '%' . $query . '%');
+        }
 
+        // Pobieranie wyników z paginacją
+        $results = $results->paginate(10);
+
+        // Przekazanie wyników do widoku
+        return view('searchbar', compact('results'));
     }
+
+
+
+
 
     public function searchTop5(Request $request)
     {
