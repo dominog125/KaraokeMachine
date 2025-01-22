@@ -10,6 +10,7 @@
 
             <li><x-nav-link href="{{route('welcome')}}">Home</x-nav-link> </li>
             <li><x-nav-link href="{{route('searchbar')}}">Search</x-nav-link></li>
+            
                 @if (Route::has('login'))
                     @auth
                         <li>
