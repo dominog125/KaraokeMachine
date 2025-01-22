@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('include.layout')
     <div class="container">
         <h1>Edycja Kategorii</h1>
 
@@ -25,5 +23,6 @@
 
             <button type="submit">Zapisz zmiany</button>
         </form>
+        <a href="{{ route('categories.index') }}">Powrót do listy kategorii</a>
+
     </div>
-@endsection

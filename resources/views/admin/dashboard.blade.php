@@ -2,7 +2,6 @@
 {{-- Uwaga: zwykle zapisujemy „kropką” (@extends('include.layout')),
      ale slash też może zadziałać --}}
 
-@section('body')
     <div class="container">
         <h1>Panel Administratora</h1>
         <p>Witaj w panelu admina! Tutaj możesz zarządzać użytkownikami, piosenkami, kategoriami, autorami itp.</p>
@@ -14,4 +13,4 @@
             <li><a href="{{ route('authors.index') }}">Zarządzaj autorami</a></li>
         </ul>
     </div>
-@endsection
+

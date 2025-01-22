@@ -1,6 +1,5 @@
-@extends('layouts.app')
+@extends('include.layout')
 
-@section('content')
     <div class="container">
         <h1>Szczegóły Kategorii</h1>
 
@@ -9,4 +8,4 @@
 
         <a href="{{ route('categories.index') }}">Powrót do listy kategorii</a>
     </div>
-@endsection
+

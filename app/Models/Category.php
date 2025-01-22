@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 
 class Category extends \Illuminate\Database\Eloquent\Model
 {
@@ -6,7 +7,7 @@ class Category extends \Illuminate\Database\Eloquent\Model
 
     protected $table = 't_category';
 
-    protected $primaryKey = 'IDCa';
+    protected $primaryKey = 'ID';
 
     protected $fillable = [
         'Category',

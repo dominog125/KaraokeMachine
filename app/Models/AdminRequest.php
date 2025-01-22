@@ -6,7 +6,7 @@ class AdminRequest extends \Illuminate\Database\Eloquent\Model
 
     protected $table = 't_adminrequest';
 
-    protected $primaryKey = 'IDTWn';
+    protected $primaryKey = 'ID';
 
     protected $fillable = [
         'IDSong',
@@ -18,16 +18,16 @@ class AdminRequest extends \Illuminate\Database\Eloquent\Model
 
     public function song()
     {
-        return $this->belongsTo(Song::class, 'IDSong', 'IDPi');
+        return $this->belongsTo(Song::class, 'ID', 'ID');
     }
 
     public function lyrics()
     {
-        return $this->belongsTo(Lyrics::class, 'IDTe', 'IDRow');
+        return $this->belongsTo(Lyrics::class, 'ID', 'ID');
     }
 
     public function request()
     {
-        return $this->belongsTo(Request::class, 'IDPr', 'IDRowCh');
+        return $this->belongsTo(Request::class, 'ID', 'ID');
     }
 }
