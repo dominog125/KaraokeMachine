@@ -11,6 +11,7 @@
             <p class="text-gray-600">Welcome to the admin panel! Here you can manage users, songs, categories, authors, and more.</p>
         </header>
 
+
         <!-- Main Content Section -->
         <main class="container mx-auto py-8 px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -44,5 +45,6 @@
         <footer class="bg-gray-200 py-4 mt-6 text-center text-sm text-gray-600">
             Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }}) | Admin Panel
         </footer>
+
     </div>
 
