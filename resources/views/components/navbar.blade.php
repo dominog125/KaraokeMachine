@@ -10,6 +10,7 @@
 
             <li><x-nav-link href="{{route('welcome')}}">Home</x-nav-link> </li>
             <li><x-nav-link href="{{route('searchbar')}}">Search</x-nav-link></li>
+
             <li><x-nav-link href="/services">Services</x-nav-link></li>
             <li><x-nav-link  href="/contact">Contact</x-nav-link></li>
 
@@ -45,14 +46,17 @@
                         </x-nav-link>
                     </li>
                         @if (Route::has('login'))
+
                         <li>
                             <x-nav-link href="{{ route('registration') }}">
                                 Register
                             </x-nav-link>
                         </li>
+
                         @endif
                     @endauth
                 @endif
+
 
         </ul>
 

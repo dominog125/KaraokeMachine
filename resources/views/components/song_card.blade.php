@@ -15,15 +15,16 @@
         <!-- Treść -->
         <div class="p-4 flex-1">
             <h2 class="text-lg font-bold text-gray-800 mb-1">
-                Title:{{ $title }}
+            
+                Title:{{ $title ?? 'title'}}
             </h2>
 
             <p class="text-gray-600 text-sm mb-3 line-clamp-2">
-                Category:{{ $category }}
+                Category:{{ $category ?? 'category'}}
             </p>
 
             <span class="inline-block text-gray-500 text-xs uppercase font-semibold tracking-wide">
-                Author:{{ $author }}
+                Author:{{ $author ?? 'author' }}
             </span>
         </div>
     </a>
