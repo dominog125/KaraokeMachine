@@ -16,7 +16,8 @@
                     <p class="text-gray-600 mb-2" >Last Login: {{ $user->last_login ?? 'Never' }}</p>
                     @if (Route::has('login'))
                         @auth
-                            <a class="bg-[linear-gradient(319deg,_#ff4d4d_0%,_#ff0066_37%,_#ff6699_100%)]
+                            <a class="
+                            bg-[linear-gradient(319deg,_#ff4d4d_0%,_#ff0066_37%,_#ff6699_100%)]
                             hover:bg-[linear-gradient(319deg,_#ff6f6f_0%,_#ff3380_37%,_#ff85a3_100%)]
                             text-white shadow-md rounded-md px-4 py-2 font-black transition-all duration-500" href="{{ url('/change-password') }}">
                                 Change Password

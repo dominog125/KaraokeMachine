@@ -1,7 +1,7 @@
 <nav class="fixed top-0 left-[15%] right-[15%] z-50 flex justify-end bg-white text-black p-4 shadow-md font-sans antialiased dark:bg-black dark:text-white/50 rounded-b-lg">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
-        <a href="/" class="text-2xl font-black text-black hover:text-gray-300">
+        <a href="/" class="text-2xl font-black text-black hover:text-gray-600">
             Sing It Out!
         </a>
 
@@ -10,11 +10,6 @@
 
             <li><x-nav-link href="{{route('welcome')}}">Home</x-nav-link> </li>
             <li><x-nav-link href="{{route('searchbar')}}">Search</x-nav-link></li>
-
-            <li><x-nav-link href="/services">Services</x-nav-link></li>
-            <li><x-nav-link  href="/contact">Contact</x-nav-link></li>
-
-
                 @if (Route::has('login'))
                     @auth
                     <li>
