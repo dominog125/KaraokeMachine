@@ -9,7 +9,7 @@
     <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-1 gap-6 w-[70%] dark:bg-gray-900 dark:text-gray-100">
 
         <!-- Search Bar -->
-        <div class="max-w-md mx-auto mb-6">
+        <div class=" w-11/12 mx-auto mb-6">
             <form action="{{ route('song.search') }}" method="GET" class="flex items-center space-x-2">
                 <input 
                     type="text" 
@@ -29,13 +29,8 @@
                 <button 
                     type="submit" 
                     class="
-                        bg-gradient-to-r 
-                        from-pink-500 
-                        via-red-500 
-                        to-yellow-500 
-                        hover:from-pink-600 
-                        hover:via-red-600 
-                        hover:to-yellow-600 
+                        hover:scale-105
+                        bg-[linear-gradient(319deg,_#663dff_0%,_#aa00ff_37%,_#cc4499_100%)]
                         shadow-md 
                         rounded-full 
                         px-4 

@@ -22,7 +22,7 @@ class RequestController extends Controller
         }
 
         // Przekaż `song_id` do widoku
-        return view('Request', compact('song_id'));
+        return view('request', compact('song_id'));
     }
 
     public function store(Request $request)

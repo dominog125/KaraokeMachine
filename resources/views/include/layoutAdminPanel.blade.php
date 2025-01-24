@@ -17,7 +17,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<x-navbar />
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
     <div class="min-h-screen flex">
         <!-- Sidebar -->
