@@ -11,7 +11,7 @@
                 @csrf
                 <div>
                     <label for="IDSong">Song ID:</label>
-                    <input type="number" id="IDSong" name="IDSong" required>
+                    <input type="hidden" name="IDSong" value="{{ $song_id }}">
                 </div>
                 <div>
                     <label for="RowPr">Row Content:</label>
@@ -24,8 +24,8 @@
                 <div>
                     <label for="ChangeType">Change Type:</label>
                     <select id="ChangeType" name="ChangeType" required onchange="toggleOldFields(this.value)">
-                        <option value="new_text">New Text</option>
-                        <option value="change_text">Change Text</option>
+                        <option value="new_text">New Lyrics</option>
+                        <option value="change_text">Change Lyrics</option>
                     </select>
                 </div>
                 <div id="oldFields" style="display: none;">

@@ -24,11 +24,11 @@ class Song extends Model
 
     public function author()
     {
-        return $this->belongsTo(Author::class, 'ID', 'ID');
+        return $this->belongsTo(Author::class, 'Author', 'ID');
     }
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'ID', 'ID');
+        return $this->belongsTo(Category::class, 'Category', 'ID');
     }
 }
