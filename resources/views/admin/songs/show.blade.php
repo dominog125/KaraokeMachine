@@ -1,4 +1,6 @@
-@extends('include.layout')
+@extends('include.layoutAdminPanel')
+@section('title', 'Song List')
+@section('content')
 
     <div class="container">
         <a href="{{ route('songs.index') }}">Powrót do listy piosenek</a>

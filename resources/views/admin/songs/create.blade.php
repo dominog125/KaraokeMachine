@@ -1,6 +1,6 @@
 @extends('include.layoutAdminPanel')
 
-@section('title', 'Add Song')
+@section('title', 'Add a New Song')
 
 @section('content')
     <div class="container mx-auto">
@@ -29,7 +29,7 @@
             </div>
 
             <div>
-                <label for="Author" class="block text-sm font-medium">ID</label>
+                <label for="Author" class="block text-sm font-medium">Author's ID</label>
                 <input 
                     type="number" 
                     name="Author" 
@@ -49,7 +49,7 @@
             </div>
 
             <div>
-                <label for="Likes" class="block text-sm font-medium">Category's ID</label>
+                <label for="Likes" class="block text-sm font-medium">Likes</label>
                 <input 
                    type="number" 
                    name="Likes" 
