@@ -34,11 +34,13 @@ class RequestController extends Controller
         $validated = $request->validate([
             'IDSong' => 'required|exists:t_song,ID',
             'RowPr' => 'required|string',
-            'TimePr' => 'required|date_format:H:i:s',
+            'TimePr' => 'required|string',
             'ChangeType' => 'required|in:change_text,new_text',
             'RowPrOld' => 'required_if:ChangeType,change_text|string|nullable',
-            'TimePrOld' => 'required_if:ChangeType,change_text|date_format:H:i:s|nullable',
+            'TimePrOld' => 'required_if:ChangeType,change_text|string|nullable',
         ]);
+
+
 
         $requestModel = new RequestModel();
         $requestModel->IDSong = $validated['IDSong'];

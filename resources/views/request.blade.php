@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <label for="TimePr">Time :</label>
-                    <input type="number" id="TimePr" name="TimePr" step="1" required>
+                    <input type="text" id="TimePr" name="TimePr" step="1" required>
                 </div>
                 <div>
                     <label for="ChangeType">Change Type:</label>
@@ -35,7 +35,7 @@
                     </div>
                     <div>
                         <label for="TimePrOld">Old Time (HH:MM:SS):</label>
-                        <input type="number" id="TimePrOld" name="TimePrOld" step="1">
+                        <input type="text" id="TimePrOld" name="TimePrOld" step="1">
                     </div>
                 </div>
                 <button type="submit">Submit Request</button>
