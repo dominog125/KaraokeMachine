@@ -48,7 +48,8 @@ class AuthManager extends Controller
             if (!$user) {
                 return redirect()->route('registration')->with('error', 'Registration failed');
             } else {
-                return redirect()->route('login')->with('success', 'Registration success');
+                Auth::login($user);
+                return redirect()->route('home', ['name' => $user->name])->with('success', 'Registration success');
             }
         } catch (\Exception $e) {
             return redirect()->route('registration')->with('error', 'Registration failed');

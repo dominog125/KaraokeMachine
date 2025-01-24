@@ -11,6 +11,7 @@
             <li><a href="{{ route('songs.index') }}">Zarządzaj piosenkami</a></li>
             <li><a href="{{ route('categories.index') }}">Zarządzaj kategoriami</a></li>
             <li><a href="{{ route('authors.index') }}">Zarządzaj autorami</a></li>
+            <li><a href="{{ route('admin.requests.index') }}">Zarządzaj sugestiami</a></li>
         </ul>
     </div>
 

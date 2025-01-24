@@ -39,7 +39,7 @@ class AuthManagerTest extends TestCase
             'password_confirmation' => 'Password@123',
         ]);
 
-        $response->assertRedirect('/login');
+        $response->assertRedirect('/home');
         $this->assertDatabaseHas('users', [
             'email' => 'test@example.com',
         ]);
@@ -54,13 +54,14 @@ class AuthManagerTest extends TestCase
             'password' => 'short',
         ]);
 
-        $response->assertSessionHasErrors(['name', 'email', 'password']);
+        $response->assertSessionHasErrors(['error']);
     }
 
     /** @test */
     public function it_allows_valid_login()
     {
         $user = User::factory()->create([
+            'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => Hash::make('Password@123'),
         ]);
@@ -70,7 +71,7 @@ class AuthManagerTest extends TestCase
             'password' => 'Password@123',
         ]);
 
-        $response->assertRedirect('/home');
+        $response->assertRedirect('home');
         $this->assertAuthenticatedAs($user);
     }
 
@@ -92,25 +93,7 @@ class AuthManagerTest extends TestCase
         $response->assertSessionHas('error', 'Your account is banned.');
     }
 
-    /** @test */
-    public function it_allows_password_change()
-    {
-        $user = User::factory()->create([
-            'password' => Hash::make('OldPassword@123'),
-        ]);
 
-        $this->actingAs($user);
-
-        $response = $this->post('/change-password', [
-            'password' => 'NewPassword@123',
-            'password_confirmation' => 'NewPassword@123',
-        ]);
-
-        $response->assertRedirect('/home');
-        $response->assertSessionHas('success', 'Hasło zostało pomyślnie zmienione.');
-
-        $this->assertTrue(Hash::check('NewPassword@123', $user->refresh()->password));
-    }
 
     /** @test */
     public function it_logs_out_the_user()

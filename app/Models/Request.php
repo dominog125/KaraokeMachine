@@ -21,8 +21,8 @@ class Request extends Model
         'UserID',
         'RowPrOld',
         'TimePrOld',
+        'status',
     ];
-
     public $timestamps = false;
 
     public function song()
