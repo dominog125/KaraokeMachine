@@ -4,6 +4,7 @@
 
 @section('title', 'Admin Panel')
 @section('body')
+    <x-navbar />
     <div class="min-h-screen bg-gray-100">
         <!-- Header Section -->
         <header class="bg-white shadow-md py-4 px-6">
@@ -19,6 +20,12 @@
                 <a href="{{ route('users.index') }}" class="group block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h2 class="text-lg font-semibold text-gray-800 group-hover:text-blue-600">Manage Users</h2>
                     <p class="text-gray-600">Add, edit, and delete user accounts.</p>
+                </a>
+
+                <!-- Song requests -->
+                <a href="{{ route('admin.requests.index') }}" class="group block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                    <h2 class="text-lg font-semibold text-gray-800 group-hover:text-blue-600">Manage Songs requests</h2>
+                    <p class="text-gray-600">View song request.</p>
                 </a>
 
                 <!-- Songs -->

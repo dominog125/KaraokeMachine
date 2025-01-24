@@ -8,16 +8,18 @@
         <div class="bg-white p-8 shadow-2xl rounded-lg w-[85%]">
             <!-- User Profile Header -->
             <div class="flex items-center gap-8 mb-8">
-                <img src="{{ $user->avatar ?? '/images/default-avatar.png' }}" 
+                <img src="{{ $user->avatar ?? asset('images/image.png') }}" 
                      alt="User Avatar" 
                      class="w-40 h-40 rounded-full border-2 border-gray-300 shadow-lg">
                 <div>
                     <h1 class="text-2xl font-bold">Welcome, {{ $user->name ?? 'Guest' }}!</h1>
-                    <p class="text-gray-600 mb-2" >Last Login: {{ $user->last_login ?? 'Never' }}</p>
+                    <p class="text-gray-600 mb-2" >Last Login: {{ $user->last_login ?? 'today' }}</p>
                     @if (Route::has('login'))
                         @auth
-                            <a class="bg-[linear-gradient(319deg,_#ff4d4d_0%,_#ff0066_37%,_#ff6699_100%)]
+                            <a class="
+                            bg-[linear-gradient(319deg,_#ff4d4d_0%,_#ff0066_37%,_#ff6699_100%)]
                             hover:bg-[linear-gradient(319deg,_#ff6f6f_0%,_#ff3380_37%,_#ff85a3_100%)]
+                            hover:scale-105
                             text-white shadow-md rounded-md px-4 py-2 font-black transition-all duration-500" href="{{ url('/change-password') }}">
                                 Change Password
                             </a>
