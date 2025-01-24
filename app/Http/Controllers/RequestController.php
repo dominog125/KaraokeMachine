@@ -56,6 +56,6 @@ class RequestController extends Controller
 
         $requestModel->save();
 
-        return redirect()->back()->with('success', 'Request submitted successfully!');
+        return redirect()->route('song.show', ['id' => $validated['IDSong']])->with('success', 'Request submitted successfully!');
     }
 }

@@ -10,10 +10,10 @@ class AdminRequestController extends Controller
 {
     public function index()
     {
-        // Pobierz wszystkie wnioski
         $requests = RequestModel::where('status', 'pending')->get();
         return view('admin.requests.index', ['requests' => $requests]);
     }
+
 
     public function updateStatus(RequestModel $request, $status)
     {
