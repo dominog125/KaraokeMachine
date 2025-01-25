@@ -5,11 +5,11 @@
     <x-navbar />
 
     <!-- Główna zawartość -->
-    <div class="flex-1 flex items-center justify-center py-16 relative">
+    <div class="flex-1 flex items-center justify-center py-16 relative ">
         <!-- Główna sekcja -->
-        <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 lg:grid-cols-2 gap-6 w-[70%]">
+        <div class="bg-white dark:bg-slate-800 p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 lg:grid-cols-2 gap-6 w-[70%]">
             <!-- Sekcja Utwory i Player -->
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col ">
+            <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md flex flex-col ">
                 <!-- Lista Utworów -->
                 @if (count($results) > 0)
                     <ul class="flex-1">
@@ -34,23 +34,23 @@
                 @endif
 
                 <!-- YouTube Player -->
-                <div id="player" class="flex justify-center my-4"></div>
+                <div id="player" class="flex-1 justify-start rounded-lg mx-auto min-h-96 w-11/12 my-4"></div>
 
                 <!-- Wyświetlanie Tekstu Piosenki -->
-                <div id="lyrics" class="text-center text-lg font-bold mt-4 text-gray-800">Ładowanie tekstu...</div>
+                <div id="lyrics" class="text-center text-lg font-bold mt-4 text-gray-800 dark:text-gray-100">Ładowanie tekstu...</div>
             </div>
 
             <!-- Sekcja Tekstów Piosenek -->
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center">
+            <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md flex flex-col items-center">
                 <button onclick="ShowLyrics()" class="mb-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 hover:scale-105 transition-all duration-300">
-                    Show Lyrics🎶
+                    Show Lyrics 🎶
                 </button>
                 <div id="Text" class="w-full hidden">
                     <ul class="space-y-2">
                         @foreach ($lyrics as $lyric)
                             <li class="border-b pb-2">
-                                <span class="text-sm text-gray-500">{{ $lyric->TimeTe }}</span><br>
-                                <span class="text-gray-700">{{ $lyric->RowTe }}</span>
+                                <span class="text-sm text-gray-500 dark:text-slate-300">{{ $lyric->TimeTe }}</span><br>
+                                <span class="text-gray-700 dark:text-gray-200">{{ $lyric->RowTe }}</span>
                             </li>
                         @endforeach
                     </ul>

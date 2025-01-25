@@ -6,7 +6,7 @@
 
 <div class="flex-1 flex items-center justify-center py-16 relative">
     <!-- Main Section -->
-    <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-1 gap-6 w-[70%] dark:bg-gray-900 dark:text-gray-100">
+    <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 md:grid-cols-1 gap-6 w-[70%] dark:bg-gray-800 dark:text-gray-100">
 
         <!-- Search Bar -->
         <div class=" w-11/12 mx-auto mb-6">
@@ -29,18 +29,39 @@
                 <button 
                     type="submit" 
                     class="
+                        group
+                        bg-white
+                        dark:bg-black
+                        hover:bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
+
+                        shadow-md
+                        hover:shadow-lg
+                        rounded-full
+                        px-4
+                        py-2
+                        text-gray-800
+                        dark:text-gray-200
+                        hover:text-white
                         hover:scale-105
-                        bg-[linear-gradient(319deg,_#663dff_0%,_#aa00ff_37%,_#cc4499_100%)]
-                        shadow-md 
-                        rounded-full 
-                        px-4 
-                        py-2 
-                        text-white 
-                        font-bold 
-                        transition-all 
+                        ring-1
+                        ring-gray-300
+                        dark:ring-gray-700
+                        font-bold
+                        block
+                        text-center
+                        transition-all
                         duration-300"
                 >
+                    <span class="
+                        bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
+                        bg-clip-text text-transparent 
+                        group-hover:text-white 
+                        dark:group-hover:text-gray-900 
+                        transition-all 
+                        duration-500"
+                    >
                     Search
+                    </span>   
                 </button>
             </form>
         </div>

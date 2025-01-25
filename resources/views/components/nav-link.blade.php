@@ -22,7 +22,7 @@
         transition-all
         duration-300
     ">
-    <span class="bg-[linear-gradient(319deg,_#663dff_0%,_#aa00ff_37%,_#cc4499_100%)] bg-clip-text text-transparent group-hover:text-white transition-all duration-500">
+    <span class="bg-[linear-gradient(319deg,_#663dff_0%,_#aa00ff_37%,_#cc4499_100%)] bg-clip-text text-transparent group-hover:text-white dark:group-hover:text-gray-900 transition-all duration-500">
         {{ $slot }}
     </span>
 </a>
