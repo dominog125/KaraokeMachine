@@ -23,7 +23,7 @@
                     <x-nav-link>
                         <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                             @csrf
-                            <button type="submit">Wyloguj</button>
+                            <button type="submit">Log Out</button>
                         </form>
                     </x-nav-link>
                 </li>

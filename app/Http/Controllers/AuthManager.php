@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Song;
 use App\Models\UsersLibrary\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -83,10 +84,16 @@ class AuthManager extends Controller
 
     public function home()
     {
-        $user=Auth::user();
-        return view('home', ['user' => $user]);
-    }
+        $user = Auth::user();
+        $songsLikes = Song::orderBy('Likes', 'desc')->limit(3)->get();
+        $songsNew = Song::orderBy('ID', 'asc')->limit(3)->get();
 
+        return view('home', [
+            'user' => $user,
+            'songsLikes' => $songsLikes,
+            'songsNew' => $songsNew,
+        ]);
+    }
     // Facebook
 
     public function redirectToFacebookLogin()

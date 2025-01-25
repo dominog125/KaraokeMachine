@@ -2,6 +2,7 @@
 
 namespace App\Models\UsersLibrary;
 
+use App\Models\Song;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
