@@ -47,13 +47,13 @@ class AuthManager extends Controller
             $user = User::create($data);
 
             if (!$user) {
-                return redirect()->route('registration')->with('error', 'Wrong Email or Password');
+                return redirect()->route('registration')->with('error', 'Registration failed');
             } else {
                 Auth::login($user);
                 return redirect()->route('home', ['name' => $user->name])->with('success', 'Registration success');
             }
         } catch (\Exception $e) {
-            return redirect()->route('registration')->with('error', 'Failed to register the user.');
+            return redirect()->route('registration')->with('error', 'Registration failed');
         }
     }
 
@@ -109,6 +109,9 @@ class AuthManager extends Controller
             $user = User::where('email', $facebookUser->getEmail())->first();
 
             if ($user) {
+                if ($user->is_banned) {
+                    return redirect()->route('login')->with('error', 'Your account is banned.');
+                }
                 Auth::login($user);
                 return redirect()->route('home', ['name' => $facebookUser->name]);
             } else {
@@ -122,7 +125,7 @@ class AuthManager extends Controller
                 return redirect()->route('login');
             }
         } catch (\Exception $e) {
-            return redirect('/login')->with('error', 'Błąd podczas logowania, spróbuj później.');
+            return redirect('/login')->with('error', 'Error while logging in, try later.');
         }
     }
 
@@ -134,7 +137,16 @@ class AuthManager extends Controller
     public function changePassword(Request $request)
     {
         $request->validate([
-            'password' => 'required|confirmed',
+            'password' => [
+                        'required',
+                        'confirmed',
+                        'string',
+                        'min:6', // Minimalna długość 6 znaków
+                        'regex:/[A-Z]/', // Musi zawierać dużą literę
+                        'regex:/[a-z]/', // Musi zawierać małą literę
+                        'regex:/[0-9]/', // Musi zawierać cyfrę
+                        'regex:/[@$!%*?&]/' // Musi zawierać znak specjalny
+                    ],
         ]);
 
         $user = Auth::user();
@@ -143,7 +155,7 @@ class AuthManager extends Controller
         $user->save();
 
         return redirect()->route('home', ['name' => $user->name])
-            ->with('success', 'Hasło zostało pomyślnie zmienione.');
+            ->with('success', 'The password has been successfully changed');
     }
 
     public function logout(Request $request)
@@ -154,7 +166,7 @@ class AuthManager extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('success', 'Zostałeś wylogowany.');
+        return redirect('/')->with('success', 'You have been logged out.');
     }
 
 }

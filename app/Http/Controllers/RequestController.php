@@ -22,7 +22,7 @@ class RequestController extends Controller
         }
 
         // Przekaż `song_id` do widoku
-        return view('request', compact('song_id'));
+        return view('Request', compact('song_id'));
     }
 
     public function store(Request $request)
@@ -56,6 +56,6 @@ class RequestController extends Controller
 
         $requestModel->save();
 
-        return redirect()->route('song.show', ['id' => $validated['IDSong']])->with('success', 'Request submitted successfully!');
+        return redirect()->back()->with('success', 'Request submitted successfully!');
     }
 }
