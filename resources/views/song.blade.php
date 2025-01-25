@@ -163,21 +163,38 @@
 
         // Funkcja do aktualizacji tekstu na podstawie czasu
         function updateLyrics(currentTime) {
-            // Znajdź odpowiedni fragment tekstu
-            const currentLyric = lyricsData.find((lyric, index) => {
-                const nextLyric = lyricsData[index + 1];
-                return currentTime >= lyric.time && (!nextLyric || currentTime < nextLyric.time);
+            let currentLyric = null;
+            let previousLyric = null;
+            let nextLyric = null;
+
+            // Znajdź odpowiedni fragment tekstu oraz rekord przed i po
+            lyricsData.forEach((lyric, index) => {
+                const next = lyricsData[index + 1];
+                if (currentTime >= lyric.time && (!next || currentTime < next.time)) {
+                    currentLyric = lyric;
+                    previousLyric = lyricsData[index - 1] || null;
+                    nextLyric = next || null;
+                }
             });
 
-            // Jeśli nie znaleziono żadnego fragmentu tekstu
-            if (!currentLyric) {
-                lyricsElement.innerHTML = '🎵'; // Wyświetl ikonę nuty
-                lyricsElement.style.color = "black"; // Kolor domyślny dla nuty
+            // Zaktualizuj wyświetlany tekst
+            lyricsElement.innerHTML = '';
+
+            if (previousLyric) {
+                const formattedPreviousTime = formatTime(previousLyric.time);
+                lyricsElement.innerHTML += `<div style="color: gray;">[${formattedPreviousTime}] ${previousLyric.text}</div>`;
+            }
+
+            if (currentLyric) {
+                const formattedCurrentTime = formatTime(currentLyric.time);
+                lyricsElement.innerHTML += `<div style="color: black; font-weight: bold;">[${formattedCurrentTime}] ${currentLyric.text}</div>`;
             } else {
-                // Wyświetl pasujący fragment tekstu
-                const formattedTime = formatTime(currentTime);
-                lyricsElement.innerHTML = `[${formattedTime}] ${currentLyric.text}`; // Wyświetla czas i tekst
-                lyricsElement.style.color = "black"; // Aktywny tekst zmienia kolor na czarny
+                lyricsElement.innerHTML += `<div style="color: black;">🎵</div>`;
+            }
+
+            if (nextLyric) {
+                const formattedNextTime = formatTime(nextLyric.time);
+                lyricsElement.innerHTML += `<div style="color: gray;">[${formattedNextTime}] ${nextLyric.text}</div>`;
             }
         }
 
@@ -216,6 +233,7 @@
             // Możesz dodać dodatkową logikę tutaj, jeśli jest potrzebna
         }
     </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const textDiv = document.getElementById("Text");
