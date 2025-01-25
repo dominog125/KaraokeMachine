@@ -42,8 +42,8 @@
 
             <!-- Sekcja Tekstów Piosenek -->
             <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <button onclick="ShowLyrics()" class="mb-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-all duration-300">
-                    Show Lyrics
+                <button onclick="ShowLyrics()" class="mb-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 hover:scale-105 transition-all duration-300">
+                    Show Lyrics🎶
                 </button>
                 <div id="Text" class="w-full hidden">
                     <ul class="space-y-2">
@@ -58,9 +58,7 @@
             </div>
 
             <!-- Stopka -->
-            <footer class="p-6 rounded-lg shadow-md col-span-full py-8 text-center text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-400 mt-4">
-                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-            </footer>
+            <x-footer/>
         </div>
     </div>
 

@@ -48,6 +48,18 @@
                             Manage Songs
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.requests.index') }}" 
+                           class="block px-4 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-700">
+                            Manage Requests
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('users.index') }}" 
+                           class="block px-4 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-700">
+                            Manage users
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </aside>

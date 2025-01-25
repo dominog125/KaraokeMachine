@@ -68,8 +68,6 @@
         @endif
 
         <!-- Footer -->
-        <footer class="p-6 rounded-lg shadow-md text-center text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-400 mt-4">
-            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-        </footer>
+        <x-footer/>
     </div>
 </div>

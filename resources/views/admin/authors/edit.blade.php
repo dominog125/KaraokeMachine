@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
-        <h1 class="text-2xl font-bold mb-6">Edit Author</h1>
 
         <!-- Error Handling -->
         @if ($errors->any())

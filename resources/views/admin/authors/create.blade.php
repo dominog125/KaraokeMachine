@@ -4,7 +4,6 @@
 
 @section('content')
     <div class="container mx-auto">
-        <h1 class="text-xl font-semibold mb-4">Add a New Author</h1>
 
         @if ($errors->any())
             <div class="bg-red-100 text-red-700 p-4 rounded-md mb-4">
