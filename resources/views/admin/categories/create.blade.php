@@ -1,7 +1,5 @@
 @extends('include.layoutAdminPanel')
-
 @section('title', 'Add Category')
-
 @section('content')
     <div class="container mx-auto">
 

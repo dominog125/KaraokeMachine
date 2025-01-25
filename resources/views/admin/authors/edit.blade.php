@@ -1,7 +1,5 @@
 @extends('include.layoutAdminPanel')
-
 @section('title', 'Edit Author')
-
 @section('content')
     <div class="bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
 

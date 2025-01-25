@@ -1,7 +1,5 @@
 @extends('include.layout')
-
 @section('title', 'Admin Dashboard')
-
 @section('body')
 
 <x-navbar />
