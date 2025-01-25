@@ -31,9 +31,8 @@
                     class="
                         group
                         bg-white
-                        dark:bg-black
+                        dark:bg-gray-700
                         hover:bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
-
                         shadow-md
                         hover:shadow-lg
                         rounded-full
@@ -45,7 +44,7 @@
                         hover:scale-105
                         ring-1
                         ring-gray-300
-                        dark:ring-gray-700
+                        dark:ring-gray-600
                         font-bold
                         block
                         text-center
@@ -56,7 +55,7 @@
                         bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
                         bg-clip-text text-transparent 
                         group-hover:text-white 
-                        dark:group-hover:text-gray-900 
+                        dark:group-hover:text-gray-700
                         transition-all 
                         duration-500"
                     >

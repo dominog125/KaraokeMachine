@@ -16,13 +16,23 @@
                     <p class="text-gray-600 mb-2" >Last Login: {{ $user->last_login                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ?? 'today' }}</p>
                     @if (Route::has('login'))
                         @auth
-                            <a class="
-                            bg-[linear-gradient(319deg,_#ff4d4d_0%,_#ff0066_37%,_#ff6699_100%)]
-                            hover:bg-[linear-gradient(319deg,_#ff6f6f_0%,_#ff3380_37%,_#ff85a3_100%)]
-                            hover:scale-105
-                            text-white shadow-md rounded-md px-4 py-2 font-black transition-all duration-500" href="{{ url('/change-password') }}">
-                                Change Password
-                            </a>
+                            <div class="
+                                hover:scale-105 bg-[linear-gradient(319deg,_#ff4d4d_0%,_#ff0066_37%,_#ff6699_100%)]
+                                hover:bg-[linear-gradient(319deg,_#ff6f6f_0%,_#ff3380_37%,_#ff85a3_100%)]
+                                text-white
+                                max-w-fit
+                                shadow-md
+                                rounded-md 
+                                px-4
+                                py-2
+                                font-black
+                                transition-all
+                                duration-500">
+                                <a href="{{ url('/change-password') }}">
+                                    Change Password
+                                </a>
+                            </div>
+                            
                         @else
                         @endauth
                     @endif
@@ -32,8 +42,8 @@
 
 
             <!-- Quick Navigation -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 ">
-                <div class="block p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md text-center">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
+                <div class="block p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md">
                     <h2 class="text-lg font-semibold">Sing it Out Your Favourite Tracks!</h2>
                     <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
 

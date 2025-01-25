@@ -61,12 +61,5 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- Back to Admin Dashboard -->
-        <a 
-            href="{{ route('admin.dashboard') }}" 
-            class="inline-block mt-6 text-blue-600 hover:text-blue-700">
-            Back to Admin Dashboard
-        </a>
     </div>
 @endsection

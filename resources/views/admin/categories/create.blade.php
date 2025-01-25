@@ -13,7 +13,7 @@
             </div>
         @endif
 
-        <form action="{{ route('categories.store') }}" method="POST" class="space-y-4 bg-white p-6 shadow-md rounded-md">
+        <form action="{{ route('categories.store') }}" method="POST" class="space-y-4 bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
             @csrf
             <div>
                 <label for="Category" class="block text-sm font-medium">Category Name</label>

@@ -20,7 +20,7 @@
 <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
     <div class="min-h-screen flex">
         <!-- Sidebar -->
-        <aside class="w-64 bg-gray-200 dark:bg-gray-800 shadow-md h-full p-4">
+        <aside class="w-64 bg-gray-200 dark:bg-gray-800 shadow-md min-h-screen p-4">
             <h2 class="text-xl font-bold mb-4">Admin Panel</h2>
             <nav>
                 <ul class="space-y-3">

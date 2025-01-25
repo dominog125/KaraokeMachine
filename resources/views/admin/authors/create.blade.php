@@ -1,7 +1,5 @@
 @extends('include.layoutAdminPanel')
-
 @section('title', 'Add Author')
-
 @section('content')
     <div class="container mx-auto">
 
@@ -15,7 +13,7 @@
             </div>
         @endif
 
-        <form action="{{ route('authors.store') }}" method="POST" class="space-y-4 bg-white p-6 shadow-md rounded-md">
+        <form action="{{ route('authors.store') }}" method="POST" class="space-y-4 bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
             @csrf
             <div>
                 <label for="Author" class="block text-sm font-medium">Author Name</label>
