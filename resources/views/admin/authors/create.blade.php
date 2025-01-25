@@ -1,10 +1,7 @@
 @extends('include.layoutAdminPanel')
-
 @section('title', 'Add Author')
-
 @section('content')
     <div class="container mx-auto">
-        <h1 class="text-xl font-semibold mb-4">Add a New Author</h1>
 
         @if ($errors->any())
             <div class="bg-red-100 text-red-700 p-4 rounded-md mb-4">
@@ -16,7 +13,7 @@
             </div>
         @endif
 
-        <form action="{{ route('authors.store') }}" method="POST" class="space-y-4 bg-white p-6 shadow-md rounded-md">
+        <form action="{{ route('authors.store') }}" method="POST" class="space-y-4 bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
             @csrf
             <div>
                 <label for="Author" class="block text-sm font-medium">Author Name</label>

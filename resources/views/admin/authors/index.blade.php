@@ -2,7 +2,6 @@
 @section('title', 'Author List')
 @section('content')
     <div class="bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
-        <h1 class="text-2xl font-bold mb-6">Author List</h1>
 
         <!-- Success Message -->
         @if(session('success'))
@@ -62,12 +61,5 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- Back to Admin Dashboard -->
-        <a 
-            href="{{ route('admin.dashboard') }}" 
-            class="inline-block mt-6 text-blue-600 hover:text-blue-700">
-            Back to Admin Dashboard
-        </a>
     </div>
 @endsection

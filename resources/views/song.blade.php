@@ -5,20 +5,52 @@
     <x-navbar />
 
     <!-- Główna zawartość -->
-    <div class="flex-1 flex items-center justify-center py-16 relative">
+    <div class="flex-1 flex items-center justify-center py-16 relative ">
         <!-- Główna sekcja -->
-        <div class="bg-white p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 lg:grid-cols-2 gap-6 w-[70%]">
+        <div class="bg-white dark:bg-slate-800 p-8 shadow-2xl flex-col rounded-lg grid grid-cols-1 lg:grid-cols-2 gap-6 w-[70%]">
             <!-- Sekcja Utwory i Player -->
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col ">
+            <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md flex flex-col ">
                 <!-- Lista Utworów -->
                 @if (count($results) > 0)
-                    <ul class="flex-1">
+                    <ul class="flex-1 ">
                         @foreach ($results as $result)
                             <x-song_card :id="$result->ID" :title="$result->Title" :category="$result->category_name" :author="$result->author_name" />
                             @auth
                                 <div class="flex justify-center mb-4">
-                                    <a href="{{ route('requests.create', [$result->ID]) }}" class="flex mx-auto w-11/12 items-center border border-gray-200 rounded-lg shadow-md hover:shadow-lg overflow-hidden transform hover:scale-105 hover:border-gray-300 px-3 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold transition-all duration-300">
-                                        Change Request
+                                    <a href="{{ route('requests.create', [$result->ID]) }}" 
+                                        class="
+                                            group
+                                            bg-white
+                                            dark:bg-gray-700
+                                            hover:bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
+                                            shadow-md
+                                            hover:shadow-lg
+                                            rounded-lg
+                                            px-3
+                                            py-2
+                                            text-gray-800
+                                            dark:text-gray-200
+                                            hover:text-white
+                                            hover:scale-105
+                                            ring-1
+                                            ring-gray-300
+                                            dark:ring-gray-600
+                                            font-bold
+                                            block
+                                            text-center
+                                            transition-all
+                                            duration-300"
+                                    >
+                                        <span class="
+                                            bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
+                                            bg-clip-text text-transparent 
+                                            group-hover:text-white
+                                            dark:group-hover:text-gray-700
+                                            transition-all 
+                                            duration-500"
+                                        >
+                                            Change Request
+                                        </span>
                                     </a>
                                 </div>
                             @endauth
@@ -34,23 +66,59 @@
                 @endif
 
                 <!-- YouTube Player -->
-                <div id="player" class="flex justify-center my-4"></div>
+                <div id="player" class="flex-1 justify-start rounded-lg mx-auto min-h-96 w-11/12 my-4"></div>
 
                 <!-- Wyświetlanie Tekstu Piosenki -->
-                <div id="lyrics" class="text-center text-lg font-bold mt-4 text-gray-800">Ładowanie tekstu...</div>
+                <div id="lyrics" class="text-center text-lg font-bold mt-4 text-gray-800 dark:text-gray-100">Ładowanie tekstu...</div>
             </div>
 
             <!-- Sekcja Tekstów Piosenek -->
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center">
-                <button onclick="ShowLyrics()" class="mb-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-all duration-300">
-                    Show Lyrics
+            <div class="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md flex flex-col items-center">
+                <button onclick="ShowLyrics()" class="
+                        group
+                        bg-white
+                        dark:bg-gray-700
+                        hover:bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
+                        shadow-md
+                        hover:shadow-lg
+                        rounded-lg
+                        px-4
+                        py-2
+                        text-gray-800
+                        dark:text-gray-200
+                        hover:text-white
+                        hover:scale-105
+                        ring-1
+                        ring-gray-300
+                        dark:ring-gray-600
+                        font-bold
+                        block
+                        text-center
+                        transition-all
+                        duration-300"
+                >
+                    <span class="
+                        bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
+                        bg-clip-text text-transparent 
+                        group-hover:text-white
+                        dark:group-hover:text-gray-700
+                        transition-all 
+                        duration-500"
+                    >
+                   🎶 Show Lyrics 🎶
+                    </span> 
                 </button>
                 <div id="Text" class="w-full hidden">
                     <ul class="space-y-2">
                         @foreach ($lyrics as $lyric)
                             <li class="border-b pb-2">
-                                <span class="text-sm text-gray-500">{{ $lyric->TimeTe }}</span><br>
-                                <span class="text-gray-700">{{ $lyric->RowTe }}</span>
+                                <span class="
+                                    text-sm bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
+                                    bg-clip-text text-transparent ">
+                                    🎶 {{ $lyric->TimeTe }}
+                                </span>
+                                <br>
+                                <span class="text-gray-700 dark:text-gray-200 font-semibold ">🎤 {{ $lyric->RowTe }}</span>
                             </li>
                         @endforeach
                     </ul>
@@ -58,9 +126,7 @@
             </div>
 
             <!-- Stopka -->
-            <footer class="p-6 rounded-lg shadow-md col-span-full py-8 text-center text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-400 mt-4">
-                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-            </footer>
+            <x-footer/>
         </div>
     </div>
 

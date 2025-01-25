@@ -1,9 +1,7 @@
 @extends('include.layoutAdminPanel')
 @section('title', 'User List')
-
 @section('content')
     <div class="bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
-        <h1 class="text-2xl font-bold mb-6">User List</h1>
 
         <!-- Success Message -->
         @if(session('success'))

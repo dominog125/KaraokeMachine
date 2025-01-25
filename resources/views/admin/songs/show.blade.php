@@ -8,8 +8,6 @@
             Back to Song List
         </a>
 
-        <h1 class="text-2xl font-bold mb-6">Song Details</h1>
-
         <!-- Song Details -->
         <div class="mb-6">
             <p><strong class="font-medium">ID:</strong> {{ $song->ID }}</p>

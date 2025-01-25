@@ -1,5 +1,4 @@
 @extends('include.layout')
-
 @section('body')
     <div class="container">
         <h1>Szczegóły Użytkownika</h1>

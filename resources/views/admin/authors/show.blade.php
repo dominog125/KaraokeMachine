@@ -1,10 +1,7 @@
 @extends('include.layoutAdminPanel')
-
 @section('title', 'Author Details')
-
 @section('content')
     <div class="bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
-        <h1 class="text-2xl font-bold mb-6">Author Details</h1>
 
         <!-- Author Details -->
         <div class="space-y-4">
