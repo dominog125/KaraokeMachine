@@ -6,7 +6,7 @@
 
         <!-- Obrazek -->
         <img
-            src="https://picsum.photos/120/120"
+            src="{{ asset('images/song.png') }}"
             alt="Song Cover"
             class="w-32 h-32 object-cover rounded-l-lg"
         >
