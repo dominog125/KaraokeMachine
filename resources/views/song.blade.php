@@ -17,7 +17,7 @@
                             <x-song_card :id="$result->ID" :title="$result->Title" :category="$result->category_name" :author="$result->author_name" />
                             @auth
                                 <div class="flex justify-center mb-4">
-                                    <a href="{{ route('requests.create', [$result->ID]) }}" 
+                                    <a href="{{ route('requests.create', [$result->ID]) }}"
                                         class="
                                             group
                                             bg-white
@@ -43,10 +43,10 @@
                                     >
                                         <span class="
                                             bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
-                                            bg-clip-text text-transparent 
+                                            bg-clip-text text-transparent
                                             group-hover:text-white
                                             dark:group-hover:text-gray-700
-                                            transition-all 
+                                            transition-all
                                             duration-500"
                                         >
                                             Change Request
@@ -54,11 +54,7 @@
                                     </a>
                                 </div>
                             @endauth
-                            @guest
-                                <div class="flex justify-end mb-4">
-                                    <p class="text-gray-600">Zaloguj się, aby uzyskać dostęp do formularza.</p>
-                                </div>
-                            @endguest
+
                         @endforeach
                     </ul>
                 @else
@@ -99,14 +95,14 @@
                 >
                     <span class="
                         bg-[linear-gradient(319deg,#ffcccc_0%,#ff66cc_50%,#cc0066_100%)]
-                        bg-clip-text text-transparent 
+                        bg-clip-text text-transparent
                         group-hover:text-white
                         dark:group-hover:text-gray-700
-                        transition-all 
+                        transition-all
                         duration-500"
                     >
                    🎶 Show Lyrics 🎶
-                    </span> 
+                    </span>
                 </button>
                 <div id="Text" class="w-full hidden">
                     <ul class="space-y-2">
