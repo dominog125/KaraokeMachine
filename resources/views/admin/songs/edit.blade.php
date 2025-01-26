@@ -1,11 +1,11 @@
-@extends('include.layout')
+@extends('include.layoutAdminPanel')
+@section('title', 'Edit Song')
+@section('content')
+    <div class="bg-white dark:bg-gray-800 p-6 shadow-md rounded-md">
 
-
-    <div class="container">
-        <h1>Edycja Piosenki</h1>
-
+        <!-- Error Handling -->
         @if ($errors->any())
-            <div style="color: red;">
+            <div class="bg-red-100 text-red-700 p-4 rounded-md mb-6">
                 <ul>
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -14,36 +14,83 @@
             </div>
         @endif
 
+        <!-- Edit Song Form -->
         <form action="{{ route('songs.update', $song->ID) }}" method="POST">
             @csrf
             @method('PUT')
-
-            <div>
-                <label for="Title">Tytuł:</label>
-                <input type="text" name="Title" id="Title" value="{{ old('Title', $song->Title) }}">
+            <!-- Song Name Field -->
+            <div class="space-y-4 mb-6">
+                <label for="Title" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Title</label>
+                <input 
+                    type="text" 
+                    name="Title" 
+                    id="Title" 
+                    class="w-full border border-gray-300 dark:border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100" 
+                    value="{{ old('Title') }}"
+                    required
+                >
             </div>
-
-            <div>
-                <label for="Author">ID Autora:</label>
-                <input type="number" name="Author" id="Author" value="{{ old('Author', $song->Author) }}">
+            <!-- Author's ID Field -->
+            <div class="space-y-4 mb-6">
+                <label for="Author" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Author's ID</label>
+                <input 
+                    type="number" 
+                    name="Author" 
+                    id="Author"
+                     class="w-full border border-gray-300 dark:border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100" 
+                    value="{{ old('Author') }}"
+                    required
+                >
             </div>
-
-            <div>
-                <label for="Category">ID Kategorii:</label>
-                <input type="number" name="Category" id="Category" value="{{ old('Category', $song->Category) }}">
+            <!-- Categories ID Field -->
+            <div class="space-y-4 mb-6">
+                <label for="Category" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Category's ID</label>
+                <input 
+                    type="number" 
+                    name="Category"
+                    id="Category" 
+                    class="w-full border border-gray-300 dark:border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100" 
+                    value="{{ old('Category') }}"
+                    required
+                >
             </div>
-
-            <div>
-                <label for="Likes">Polubienia:</label>
-                <input type="number" name="Likes" id="Likes" value="{{ old('Likes', $song->Likes) }}">
+            <!-- Likes Field -->
+            <div class="space-y-4 mb-6">
+                <label for="Likes" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Likes</label>
+                <input 
+                    type="number" 
+                    name="Likes"
+                    id="Likes" 
+                    class="w-full border border-gray-300 dark:border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100" 
+                    value="{{ old('Likes') }}"
+                    required
+                >
             </div>
-
-            <div>
-                <label for="Likes">Link do Youtube(Podaj Identyfikator filmu):</label>
-                <input type="text" name="Ytlink" id="Ytlink" value="{{ old('Ytlink'), $song->Ytlink }}">
+            <!-- YT code Field -->
+            <div class="space-y-4 mb-6">
+                <label for="Ytlink" class="block text-lg font-semibold text-gray-700 dark:text-gray-300">Youtube Link (Video Identifier)</label>
+                <input 
+                    type="text" 
+                    name="Ytlink" 
+                    id="Ytlink" 
+                    class="w-full border border-gray-300 dark:border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-gray-100" 
+                    value="{{ old('Ytlink') }}"
+                    required
+                >
             </div>
-
-            <button type="submit">Zapisz zmiany</button>
+            <!-- Submit Button -->
+            <button 
+                type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
+                Save Changes
+            </button>
         </form>
+        <!-- Back to Author List -->
+        <a 
+            href="{{ route('songs.index') }}" 
+            class="inline-block mt-6 text-blue-600 hover:text-blue-700">
+            Back to Song List
+        </a>
     </div>
+@endsection
 

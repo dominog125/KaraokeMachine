@@ -39,7 +39,7 @@ class AuthManagerTest extends TestCase
             'password_confirmation' => 'Password@123',
         ]);
 
-        $response->assertRedirect('/home');
+        $response->assertRedirect(route('home', ['name' => 'Test User']));
         $this->assertDatabaseHas('users', [
             'email' => 'test@example.com',
         ]);
@@ -54,7 +54,7 @@ class AuthManagerTest extends TestCase
             'password' => 'short',
         ]);
 
-        $response->assertSessionHasErrors(['error']);
+        $response->assertSessionHas('error', 'Failed to register the user.');
     }
 
     /** @test */
@@ -71,7 +71,7 @@ class AuthManagerTest extends TestCase
             'password' => 'Password@123',
         ]);
 
-        $response->assertRedirect('home');
+        $response->assertRedirect(route('home', ['name' => 'Test User']));
         $this->assertAuthenticatedAs($user);
     }
 

@@ -20,6 +20,6 @@ class EnsureAdmin
         }
 
         // Jeśli nie ma uprawnień - można zwrócić błąd 403
-        abort(403, 'Brak dostępu - nie jesteś administratorem.');
+        abort(403, 'No access - you are not an administrator.');
     }
 }

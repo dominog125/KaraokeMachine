@@ -33,15 +33,7 @@ Route::get('/song/{id}', [SongController::class, 'showSong'])->name('song.show')
 Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
 Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
 
-Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
 
 //Zwykłe logowanie
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
@@ -77,8 +69,8 @@ Route::middleware(['auth','isAdmin'])->group(function()   {
     Route::resource('/admin/categories', CategoryController::class);
     Route::resource('/admin/authors', AuthorController::class);
     Route::post('/admin/changes/{proposal}/{action}', [AdminController::class, 'handleChange']);
-    Route::get('/requests', [AdminRequestController::class, 'index'])->name('admin.requests.index');
-    Route::post('/requests/{request}/status/{status}', [AdminRequestController::class, 'updateStatus'])->name('admin.requests.updateStatus');
+    Route::get('/admin/requests', [AdminRequestController::class, 'index'])->name('admin.requests.index');
+    Route::post('/admin/requests/{request}/status/{status}', [AdminRequestController::class, 'updateStatus'])->name('admin.requests.updateStatus');
     Route::post('/lyrics/store', [LyricsController::class, 'storeFromShow'])->name('lyrics.storeFromShow');
     Route::put('/lyrics/update/{lyrics}', [LyricsController::class, 'updateFromShow'])->name('lyrics.updateFromShow');
     Route::delete('/lyrics/destroy/{lyrics}', [LyricsController::class, 'destroyFromShow'])->name('lyrics.destroyFromShow');

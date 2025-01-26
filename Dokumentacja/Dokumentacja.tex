@@ -1,0 +1,185 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{lmodern}        % lepsze fonty wektorowe
+\usepackage[hidelinks,plainpages=false,hypertexnames=false]{hyperref}       % linki w dokumencie
+\usepackage{graphicx}       % do wstawiania obrazków
+\usepackage{listings}       % do prezentacji kodu źródłowego
+\usepackage{amsmath,amssymb} % dodatkowe symbole matematyczne
+\usepackage{breakurl}        % do łamania adresów URL
+\usepackage{titlesec}        % do ustawiania formatowania tytułów
+\usepackage{fancyhdr}        % do numeracji stron
+\usepackage{setspace}        % do ustawienia interlinii
+\usepackage{enumitem}        % do zaawansowanego formatowania list
+\usepackage{pifont}          % do dodania znaczników typu checkmark
+\usepackage{array}           % do tabel
+
+% Ustawienia formatowania strony
+\usepackage[a4paper,margin=2.5cm]{geometry}
+
+% Numeracja stron u dołu (bez strony tytułowej)
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% Czcionka: Times New Roman
+\renewcommand{\rmdefault}{ptm}
+
+% Formatowanie tytułów rozdziałów i podrozdziałów
+\titleformat{\section}{\bfseries\fontsize{14pt}{14pt}\selectfont}{\thesection}{1em}{}
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+\titleformat{\subsection}{\bfseries\fontsize{13pt}{13pt}\selectfont}{\thesubsection}{1em}{}
+\titlespacing{\subsection}{0pt}{6pt}{6pt}
+
+\titleformat{\paragraph}[runin]{\bfseries\fontsize{12pt}{12pt}\selectfont}{\theparagraph}{1em}{}
+\titlespacing{\paragraph}{0pt}{6pt}{6pt}
+
+% Interlinia 1.5
+\renewcommand{\baselinestretch}{1.5}
+
+% Wcięcie pierwszego wiersza akapitu 0,7 cm
+\setlength{\parindent}{0.7cm}
+
+\sloppy % Wymuszanie łamania tekstu
+
+\begin{document}
+
+%-----------------------------------------
+% Strona tytułowa (bez numeracji strony)
+%-----------------------------------------
+\thispagestyle{empty}
+\begin{titlepage}
+    \centering
+    {\Large\textbf{Dokumentacja Techniczna Projektu}}\\[1em]
+    {\large \textbf{Projekt: Karaoke Machine}} \\
+
+    \textbf{Autorzy projektu:}
+
+    \vspace{1em}
+
+    \begin{tabular}{@{}l r@{}}
+    Dawid Brożyna & 42719 \\
+    Jakub Demkowski & 42724\\
+    Dominik Gwóżdź & 43189 \\
+    Kamil Rudowski & 43256 \\
+    \end{tabular}
+
+    \vfill
+
+    {\large \textbf{Wersja dokumentu: 1.0}}\\[0.5em]
+    {\large \textbf{Data: \today}}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+%-----------------------------------------
+\section{Opis funkcjonalny systemu}
+System \textbf{Karaoke Machine} został zaprojektowany w celu organizacji sesji karaoke. Główne funkcjonalności systemu obejmują:
+
+\begin{tabular}{@{}p{0.9\linewidth}p{0.1\linewidth}@{}}
+    - Użytkownik może zarejestrować się w systemie & \ding{51} \\
+    - Użytkownik może wyszukiwać piosenki (po tytule, autorach, fragmencie tekstu i kategoriach) & \ding{51} \\
+    - Użytkownik może uruchomić piosenkę & \ding{51} \\
+    \quad - Piosenka może być uruchomiona z zewnętrznego systemu (np. YouTube) & \ding{51} \\
+    \quad - Na ekranie muszą pojawiać się słowa piosenki przypisane do konkretnego czasu odtworzenia & \ding{51} \\
+    - Użytkownik może zobaczyć tekst piosenki z przypisanymi czasami do konkretnych wierszy & \ding{51} \\
+    - Użytkownik może proponować zmianę tekstu lub czasów & \ding{51} \\
+    \quad - Zmiany mogą zostać później zaakceptowane lub odrzucone przez administratora & \ding{51} \\
+    - Administrator może zarządzać użytkownikami: widzi ich dane, może ich blokować & \ding{51} \\
+    - Administrator może zarządzać autorami i kategoriami piosenek & \ding{51} \\
+    - Administrator może zarządzać piosenkami & \ding{51} \\
+    \quad - Podpinać źródło muzyczne & \ding{51} \\
+    \quad - Zarządzać tekstem i znacznikami czasowymi & \ding{51} \\
+    \quad - Zarządzać podpowiedziami od użytkowników & \ding{51} \\
+    - Rejestracja powinna odbywać się klasycznie poprzez mejla oraz Facebooka & \ding{51} \\
+\end{tabular}
+
+%-----------------------------------------
+\section{Opis technologiczny}
+Projekt wykorzystuje następujące technologie i narzędzia:
+\begin{itemize}
+    \item \textbf{Język programowania:} PHP 8.3.13
+    \item \textbf{Framework:} Laravel 11.30.0
+    \item \textbf{Package:} Laravel Socialite 5.17
+    \item \textbf{Framework CSS:} Tailwind CSS 3.4.13
+    \item \textbf{Serwer:} Apache 2.4
+    \item \textbf{Baza danych:} MariaDB/MySQL
+    \item \textbf{API:} YouTube Player API Reference for iframe Embeds
+    \item \textbf{System operacyjny:} Windows/Linux
+\end{itemize}
+Architektura systemu opiera się na wzorcu MVC (Model-View-Controller), co zapewnia modularność i łatwość w rozbudowie aplikacji
+
+%-----------------------------------------
+\section{Podział obowiązków i odpowiedzialności w zespole}
+Podział obowiązków w zespole projektowym wyglądał następująco:
+\begin{itemize}
+    \item \textbf{Dominik Gwóżdź:} Project manager, Inżynier devops,  Backend
+    \item \textbf{Jakub Demkowski:} Frontend
+    \item \textbf{Dawid Brożyna:} Tester
+    \item \textbf{Kamil Rudowski:} Backend
+\end{itemize}
+
+%-----------------------------------------
+\section{Instrukcja lokalnego i zdalnego uruchomienia systemu}
+\subsection{Lokalne uruchomienie systemu}
+Aby uruchomić aplikację lokalnie, wykonaj następujące kroki:
+\begin{enumerate}
+    \item Klonowanie repozytorium:
+    \begin{verbatim}
+    git clone https://github.com/dominog125/KaraokeMachine.git
+    \end{verbatim}
+    \item Instalacja zależności:
+    \begin{verbatim}
+    composer install
+    \end{verbatim}
+    \item Konfiguracja pliku .env zgodnie z lokalnymi ustawieniami
+    \item Wygenerowanie klucza aplikacji:
+    \begin{verbatim}
+    php artisan key:generate
+    \end{verbatim}
+    \item Migracja bazy danych:
+    \begin{verbatim}
+    php artisan migrate
+    \end{verbatim}
+    \item Uruchomienie serwera lokalnego:
+    \begin{verbatim}
+    php artisan serve
+    \end{verbatim}
+    \item Kompilacja frontendu:
+    \begin{verbatim}
+    npm run dev
+    \end{verbatim}
+\end{enumerate}
+
+\subsection{Zdalne uruchomienie systemu}
+Aby uruchomić aplikację na serwerze produkcyjnym, wykonaj następujące kroki:
+\begin{enumerate}
+    \item Skopiuj pliki projektu na serwer
+    \item Skonfiguruj środowisko produkcyjne (np. Apache, MariaDB)
+    \item Ustaw zmienne środowiskowe w pliku .env
+    \item Uruchom migracje bazy danych:
+    \begin{verbatim}
+    php artisan migrate
+    \end{verbatim}
+    \item Kompilacja frontendu:
+    \begin{verbatim}
+    npm run production
+    \end{verbatim}
+\end{enumerate}
+
+%-----------------------------------------
+\section{Wnioski projektowe}
+Poniżej przedstawiono wnioski od poszczególnych członków zespołu:
+\begin{itemize}
+    \item \textbf{Dawid Brożyna:}  Praca nad konfiguracją i testowaniem aplikacji była cennym doświadczeniem
+    \item \textbf{Jakub Demkowski:} Projekt umożliwił mi rozwinięcie umiejętności projektowania interfejsów użytkownika
+    \item \textbf{Dominik Gwóżdź:} Projekt pozwolił mi udoskonalić umiejętności zarządzania zespołem oraz efektywnego planowania zadań. Dodatkowo nauczyłem się lepiej monitorować ryzyka projektowe.
+    \item \textbf{Kamil Rudowski:} Dzięki projektowi nauczyłem się efektywnego wykorzystania frameworka Laravel
+\end{itemize}
+
+\end{document}
